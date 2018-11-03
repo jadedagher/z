@@ -1,0 +1,87 @@
+<template name="home">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Pulse - Home</title>
+
+    {{ > bootstraplinks}}
+
+</head>
+
+<body class="text-align">
+    <section style="background-color: transparent !important;" class="jumbotron text-center">
+        <div class="container">
+          <h1 class="jumbotron-heading">Hello {{findfirstname}}!</h1>
+          <p class="lead text-muted">Here is the list of Pulse Events,<br>join a challenge now!</p>
+          <br>
+          <a class="lead todayfilter">Today</a> - <a class="lead incomingfilter">Incoming</a> - <a class="lead pastfilter">Past</a> - <a class="lead allfilter">All</a>
+
+          <br>
+          <br>
+
+          <!-- Today challenge -->
+          <div class="todaycontainer list-group">
+            <h4 class="text-muted" style="text-align: left;">Today challenge <img src="/tada.png" class="emoji" alt="tada"></h4>
+
+            <!-- ESCP party -->
+            <button class="events list-group-item list-group-item-action flex-column align-items-start aktive active_event rainbow">
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">ESCP party night</h5>
+                <small>ESCP Europe - Montparnasse campus - 3 Rue Armand Moisant, 75015 Paris</small>
+              </div>
+              <p class="mb-1">Prize: XXX <br> Beginning Price: XXX€</p>
+              <small>November 9th, 2018 - 9pm</small>
+            </button>
+          </div>
+          <br>
+          <!-- Incoming challenges -->
+          <div class="incomingcontainer list-group">
+            <h4 class="text-muted" style="text-align: left;">Incoming challenges <img src="/soon.png" class="emoji" alt="tada"></h4>
+
+            <!-- Disney -->
+            <button class="events list-group-item list-group-item-action flex-column align-items-start soon_event">
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">Disney</h5>
+                <small>Disney Store - 44 Av. des Champs-Élysées, 75008 Paris</small>
+              </div>
+              <p class="mb-1">Prize: Mickey Mouse <br> Beginning Price: 85€</p>
+              <small></small>
+            </button>
+            <!-- Teasing -->
+            <button class="events list-group-item list-group-item-action flex-column align-items-start">
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1"></h5>
+                <small>...</small>
+              </div>
+              <p class="mb-1">You will be surprise of what will happen soon <br> More details in the coming weeks!</p>
+              <small>...</small>
+            </button>
+          </div>
+          <br>
+          <!-- Past challenges -->
+          <div class="pastcontainer list-group">
+            <h4 class="text-muted" style="text-align: left;">Past challenges</h4>
+
+            <!-- ESCP MS MARKETING -->
+            <button class="events list-group-item list-group-item-action flex-column align-items-start over_event">
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">MS Marketing challenge</h5>
+                <small>ESCP Europe - Montparnasse campus - 3 Rue Armand Moisant, 75015 Paris</small>
+              </div>
+              <p class="mb-1">Prize: Google Home Mini <br> Beginning Price: 45€</p>
+              <small>October 12th, 2018 - 16:30pm</small>
+            </button>
+          </div>
+          <br>
+          <br>
+          <br>
+          <button class="logout button btn-danger btn-lg btn-block">Log out</button>
+
+        </div>
+    </section>
+</body>
+
+</template>

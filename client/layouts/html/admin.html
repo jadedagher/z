@@ -1,0 +1,27 @@
+<template name="admin">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Pulse - Admin side</title>
+
+    {{ > bootstraplinks}}
+
+</head>
+
+<body class="text-align">
+    <section style="background-color: transparent !important;" class="jumbotron text-center">
+        <div class="container">
+          <h1 class="jumbotron-heading">Administrator side</h1>
+          <p class="lead text-muted">This is only for admin! If you click on start bid button, the challenge will start!!</p>
+          <form class="pannel">
+                <input type="hidden" class="itemidpannel" value="{{item._id}}">
+                <button class="btn-danger timerstart button btn btn-lg btn-block" type="submit">Start bid</button>
+            </form>
+        </div>
+    </section>
+</body>
+
+</template>
