@@ -16,13 +16,16 @@ Template.admin.onRendered(function () {
 
 Template.admin.onCreated(function bodyOnCreated() {
 
-  if(Meteor.user()===null){
-    alert("Smart ass!!! You should sign in to see this babe!");
-    FlowRouter.go('login');
-    Template.admin.hide();
-  }else{
-    this.itemSub = this.subscribe("items"); //get items
-  }
+  setInterval(function(){ 
+    if(Meteor.user() === null || Meteor.user().emails[0].address != "jadedagheresme@gmail.com"){
+      alert("Smart ass!!! You should see this!");
+      FlowRouter.go('login');
+      location.reload();
+    }
+  }, 150);
+
+  this.itemSub = this.subscribe("items"); //get items
+
 });
 
 Template.admin.helpers({
@@ -35,21 +38,56 @@ Template.admin.helpers({
 
 Template.admin.events({
 
-  'submit .pannel'(event){
+  'submit .startgame'(event){
       event.preventDefault();
       const $el = $(event.currentTarget);
       const $itemid = $el.find('.itemidpannel');
 
-      if(Meteor.user()===null){
-        alert("You should sign-in before doing anything and specially this!");
-        FlowRouter.go('signin');
-      }else{
-        Meteor.call("startBid", $itemid.val(), function(err,res){
-            if(err){
-             console.log('Error start bid: '+err);
-            }
-        });
-        FlowRouter.go('bid');
-      }
+      Meteor.call("startBid", $itemid.val(), function(err,res){
+        if(err){
+          console.log('Error startbid: '+err);
+        }
+      });
+    FlowRouter.go('bid');
+  }, 
+
+  'submit .resetgame'(event){
+
+      event.preventDefault();
+
+      Meteor.call("resetBid", function(err,res){
+        if(err){
+          console.log('Error resetbid: '+err);
+        }
+      });
+  },
+
+  'submit .populatedb'(event, template){
+      event.preventDefault();
+
+      const $inputname = template.find('#itemname').value;
+      const $inputprice = parseInt(template.find('#itemprice').value);
+      
+      const data = {itemname: $inputname, itemprice: $inputprice};
+
+      Meteor.call("populateitemdb", data, function(err,res){
+        if(err){
+          console.log('Error populateitemdb: '+err);
+        }
+      });
+    FlowRouter.go('bid');
+  },
+
+  'submit .test_populatedb'(event){
+      event.preventDefault();
+
+      Meteor.call("test_populateitemdb", function(err,res){
+        if(err){
+          console.log('Error test_populateitemdb: '+err);
+        }
+      });
+    FlowRouter.go('bid');
   }
 });
+
+

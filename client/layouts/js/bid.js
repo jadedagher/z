@@ -36,7 +36,6 @@ Template.bid.onCreated(function bodyOnCreated() {
 
     this.timermili = new ReactiveVar(0);
     this.intervalmili = Meteor.setInterval(() => this.timermili.set(this.timermili.get() + 1), 1);
-  
   }
 });
 
@@ -67,6 +66,13 @@ Template.bid.helpers({
     const timeToZero = 60;
     let price = initialPrice - (elapstedTime * initialPrice) / timeToZero;
     price = price >= 0 ? Math.round(price) : 0;
+
+    // if(price === 0){
+    //   setInterval(function(){ 
+    //     FlowRouter.go('leaderboard');
+    //     location.reload();
+    //   }, 3000);
+    // }
 
     return price ;
   },
@@ -114,17 +120,17 @@ Template.bid.events({
         const $el = $(event.currentTarget);
 
         const $itemid = $el.find('.itemid');
-        const $itemprice = $el.find('.itemprice');
+        const $itemprice = parseInt($el.find('.itemprice').val()); //converting itemprice in number
         
-        const data = {itemID: $itemid.val(), itemPrice: $itemprice.val()};
+        const data = {itemID: $itemid.val(), itemPrice: $itemprice};
 
-        alert("Hello "+Meteor.user().profile.firstname+", you just bid at " +$itemprice.val()+ "€ Thank you!!!");
+        alert("Hello "+Meteor.user().profile.firstname+", you just bid at " +$itemprice+ "€ Thank you!!!");
         
         Meteor.call("sendBid", data, (error, response) => {
           if (error) {
             alert(error.reason);
           } else {
-            $itemprice.val("");
+            //nothing
           }
         });
       } else {
@@ -138,23 +144,6 @@ Template.bid.events({
     FlowRouter.go('home');
   }
   
-  //hide hint in the top right corner
-  // 'click .hide-hint-button'(event, instance) {
-  //   //cookies only understand strings
-  //   Cookie.set("hideHint", (Cookie.get("hideHint")=="true") ? "false" : "true");
-  // },
-
-  // 'submit .pannel'(event){
-  //     event.preventDefault();
-  //     const $el = $(event.currentTarget);
-  //     const $itemid = $el.find('.itemidpannel');
-      
-  //     Meteor.call("startBid", $itemid.val(), function(err,res){
-  //         if(err){
-  //          console.log('Error start bid: '+err);
-  //         }
-  //     }); 
-  // }
   
 });
   

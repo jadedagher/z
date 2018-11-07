@@ -23,12 +23,18 @@ Template.home.onCreated(function bodyOnCreated() {
       location.reload();
     }
   }, 5000);
+
+  this.itemSub = this.subscribe("items"); //get items
   
 });
 
 Template.home.helpers({
   findfirstname(){
     return Meteor.user().profile.firstname;
+  }, 
+
+  item(){
+    return Items.findOne({});
   }
 });
 

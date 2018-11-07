@@ -1,0 +1,51 @@
+<template name="leaderboard">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Pulse - Admin side</title>
+
+    {{ > bootstraplinks}}
+
+</head>
+
+<body class="text-align">
+
+    <img class="cancelbtnbid cancel" id="oo" src="/cancel.png">
+    
+    <section style="background-color: transparent !important;" class="jumbotron text-center">
+        <div class="container">  
+          <h1 class="jumbotron-heading">Leaderboard</h1>
+          <p class="lead text-muted">Here is the results!</p>
+            <br>
+            <br>
+            {{#if Template.subscriptionsReady}}
+                <table class="table table-hover">
+                    <thead>
+                      <tr>
+                        <th style="text-align: center !important;">First Name</th>
+                        <th style="text-align: center !important;">Last Name</th>
+                        <th style="text-align: center !important;">Bid Price</th>
+                        <th style="text-align: center !important;">Bid Time</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    {{#each bidslist}}
+                    <tr>
+                        <td>{{firstname}}</td>
+                        <td>{{lastname}}</td>
+                        <td>{{itemPrice}}</td>
+                        <td>{{createdAt}}</td>
+                    </tr>
+                    {{/each}}
+                    </tbody>
+                </table>
+            {{/if}}
+        </div>
+
+    </section>
+</body>
+
+</template>

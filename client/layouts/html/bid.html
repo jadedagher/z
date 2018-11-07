@@ -20,7 +20,7 @@
         <h2 style="color: #6C6CCA" id="time_output">{{timeRemaining item.bidAt item.buyAt}}s // {{milisecond item.bidAt item.buyAt}}ms</h2>
         <h3>Item Price:</h3>
         <h2 style="color: #6C6CCA" id="item_price">{{price item.initialPrice item.bidAt item.buyAt }} €</h2>
-        <p>Today Prize: {{ item.name }}</p>
+        <p>Today Prize: <span style="background-color: #6BFEF6">{{ item.name }}</span></p>
     </div>
 
     <form class="form-bid message" id="signin">
@@ -28,19 +28,25 @@
       <br>
       <br>
       <br>
+
       <p class="h5 font-weight-normal">RULES: the first one to Bid win the Prize</p>
       <input type="hidden" class="itemid" value="{{item._id}}">
       <input type="hidden" class="itemprice" value="{{price item.initialPrice item.bidAt item.buyAt}}">
 
       <br>
+
       <div class="checkbox mb-3">
         <label class="customcheck">
-          <input type="checkbox" id="surebid">I'm sure, I want to <span style="color:red">bid</span>
+          <input type="checkbox" id="surebid"><span style="color:red">I'm sure, I want to bid</span>
       </label>
       </div>
+
       <br>
+      
       <button class="button rainbow btn btn-lg btn-block" type="submit">Pay now!</button>
+      
       <br>
+      
       <p>Pulse app</p>
     </form>
 

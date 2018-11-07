@@ -37,11 +37,10 @@ Meteor.methods({
 
 		check(data, {
       itemID: String,
-      itemPrice: String, //the message to send
-      name: Match.Optional(String) //if the user already has a name
+      itemPrice: Number
 		});
     
-    if (data.itemID=="" || data.itemPrice=="") {
+    if (data.itemID =="" || data.itemPrice == null) {
       throw new Meteor.Error("message-empty", "something went wrong!");
     } else {
 
@@ -58,15 +57,46 @@ Meteor.methods({
     }
 	}, 
 
+  //admin function
   'startBid'(itemID){
       const res = Items.update( itemID , { $set: { bidAt: Date.now(), buyAt: null }});
   },
 
-  // 'getServerTime'() {
-  //   var date = new Date();
-  //   date.setTime(date.getTime());
-  //   return date;
-  // }
+  'resetBid'(){
+      const res = Items.rawCollection().drop();
+  },
 
+  'test_populateitemdb'(){
+      Items.insert({
+        name: "Google Home MINI",
+        image: 1,
+        initialPrice: 45, 
+        bidAt: null,
+        buyAt: 1,
+        createdAt: new Date()
+      });
+  },
+
+  'populateitemdb'(data){
+
+    check(data, {
+      itemname: String,
+      itemprice: Number
+    });
+
+    if (data.itemname =="" || data.itemprice == null) {
+      throw new Meteor.Error("message-empty", "fill the fields");
+    } else {
+
+      Items.insert({
+        name: data.itemname,
+        image: 1,
+        initialPrice: data.itemprice, 
+        bidAt: null,
+        buyAt: 1,
+        createdAt: new Date()
+      });
+    }
+  }
 });
 

@@ -9,6 +9,7 @@ Meteor.publish("items", function() {
   	initialPrice: 1, 
   	bidAt: 1, 
   	buyAt: 1,
+  	createdAt: 1
   }
   }); 
 });

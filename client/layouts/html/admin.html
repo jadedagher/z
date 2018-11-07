@@ -15,10 +15,32 @@
     <section style="background-color: transparent !important;" class="jumbotron text-center">
         <div class="container">
           <h1 class="jumbotron-heading">Administrator side</h1>
-          <p class="lead text-muted">This is only for admin! If you click on start bid button, the challenge will start!!</p>
-          <form class="pannel">
+          <p class="lead text-muted">This is only for admin!</p>
+
+          <br>
+            <p class="lead text-muted">1) Reset, will erase items DB</p>
+            <form class="resetgame">
+                <button class="btn-danger reset button btn btn-lg btn-block" type="submit">Reset Game</button>
+            </form>
+            <br>
+            <br>
+            <p class="lead text-muted">2) Populate BD, will insert an item</p>
+            <form class="populatedb">
+                <input type="text" id="itemname" class="itemname form-control" placeholder="Custom - Item name (text)" required="" autofocus="">
+                <input type="text" id="itemprice" class="itemprice form-control" placeholder="Custom - Item price (number)" required="" autofocus=""><br>
+
+                <button class="btn-primary populate button btn btn-lg btn-block" type="submit">Custom - Populate item DB</button>
+            </form>
+            <p class="lead text-muted">or</p>
+            <form class="test_populatedb">
+                <button class="btn-primary test_populate button btn btn-lg btn-block" type="submit">Example - Populate item DB</button>
+            </form>
+            <br>
+            <br>
+            <p class="lead text-muted">3) Start bid, will launch the game</p>
+            <form class="startgame">
                 <input type="hidden" class="itemidpannel" value="{{item._id}}">
-                <button class="btn-danger timerstart button btn btn-lg btn-block" type="submit">Start bid</button>
+                <button class="btn-success timerstart button btn btn-lg btn-block" type="submit">Start bid</button>
             </form>
         </div>
     </section>
