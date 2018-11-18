@@ -26,7 +26,7 @@ Template.home.onCreated(function bodyOnCreated() {
   }, 5000);
 
   this.itemSub = this.subscribe("items"); //get items
-  this.eventSub = this.subscribe("events"); //get events
+  // this.eventSub = this.subscribe("events"); //get events
   
 });
 
@@ -39,10 +39,9 @@ Template.home.helpers({
     return Items.findOne({});
   },
 
-  eventalllist(){
-    console.log("test");
-    return Events.findOne({});
-  }
+  // eventalllist(){
+  //   return Events.find({});
+  // }
 });
 
 Template.home.events({
@@ -52,7 +51,7 @@ Template.home.events({
 			alert("You should sign in before continue!");
 			FlowRouter.go('signin');
 	  }else{
-	  		FlowRouter.go('bid');
+	  		FlowRouter.go('bid', {id:1});
 	    }
   	},
 

@@ -2,10 +2,10 @@
 	<button class="events list-group-item list-group-item-action flex-column align-items-start aktive active_event rainbow">
               <div class="d-flex w-100 justify-content-between">
                 <h5 class="mb-1">{{event_name}}</h5>
-                <small><!-- ESCP Europe - Montparnasse campus - 3 Rue Armand Moisant, 75015 Paris --></small>
+                <small>{{event_location}}</small>
               </div>
-              <h1>JADE</h1>
-              <!-- <p class="mb-1">Prize: {{ item.name }}<br> Beginning Price: <span class="underlineprice">{{ item.initialPrice }}€</span></p>
-              <small>November 9th, 2018 - 9pm</small> -->
+              <p class="mb-1">Prize: {{ product_name }}<br> Beginning Price: <span class="underlineprice">{{ product_initialPrice }}€</span></p>
+              <small>{{event_time}}</small>
+              <input type="hidden" id="eventID" value="{{_id}}">
      </button>
 </template>
