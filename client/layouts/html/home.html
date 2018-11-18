@@ -22,10 +22,24 @@
           <br>
           <br>
 
+
+          {{#if Template.subscriptionsReady}}
+            {{#each eventalllist}}
+                {{> eventlist}}
+            {{/each}}
+          {{/if}}
+
+
+
+
+
+
+
+
+
           <!-- Today challenge -->
           <div class="todaycontainer list-group">
             <h4 class="text-muted" style="text-align: left;">Today challenge <img src="/tada.png" class="emoji" alt="tada"></h4>
-
             <!-- ESCP party -->
             <button class="events list-group-item list-group-item-action flex-column align-items-start aktive active_event rainbow">
               <div class="d-flex w-100 justify-content-between">

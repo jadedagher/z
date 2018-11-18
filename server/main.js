@@ -10,5 +10,21 @@ Meteor.startup(() => {
 	 //  	buyAt: 1,
 	 //  	createdAt: new Date()
   //     });
+
+	Events.insert({
+	  	productID: "j", 
+	    event_name: "j", 
+	  	event_location: "j", 
+	  	event_time: "j",
+	  	product_name: "j",
+	  	product_initialPrice: "j",
+	    winner_name: "j", 
+	    winner_price: "j", 
+	    bid_time: "j", 
+	    bidstart: "j",
+	    launchedAt: "j", 
+	    finishedAt: "j",
+	    createdAt: "j"
+  	});
 });
 

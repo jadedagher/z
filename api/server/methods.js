@@ -1,7 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { check, Match } from 'meteor/check';
 
-import { Bids, Items } from '../collections.js';
+import { Bids, Items, Events } from '../collections.js';
 
 
 Meteor.methods({

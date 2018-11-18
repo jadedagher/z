@@ -2,9 +2,10 @@ import { Template } from 'meteor/templating';
 import { Cookies } from 'meteor/mrt:cookies';
 import d3 from 'd3';
 
-import { Bids, Items } from '../../../api/collections.js';
+import { Bids, Items, Events } from '../../../api/collections.js';
 
 import '../html/home.html';
+import './eventlist.js';
 
 // style
 Template.home.onRendered(function () {
@@ -25,6 +26,7 @@ Template.home.onCreated(function bodyOnCreated() {
   }, 5000);
 
   this.itemSub = this.subscribe("items"); //get items
+  this.eventSub = this.subscribe("events"); //get events
   
 });
 
@@ -35,6 +37,11 @@ Template.home.helpers({
 
   item(){
     return Items.findOne({});
+  },
+
+  eventalllist(){
+    console.log("test");
+    return Events.findOne({});
   }
 });
 
