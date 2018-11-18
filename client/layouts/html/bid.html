@@ -20,7 +20,7 @@
         <h2 style="color: #6C6CCA" id="time_output">{{timeRemaining item.bidAt item.buyAt}}s // {{milisecond item.bidAt item.buyAt}}ms</h2>
         <h3>Item Price:</h3>
         <h2 style="color: #6C6CCA" id="item_price">{{price item.initialPrice item.bidAt item.buyAt }} €</h2>
-        <p>Today Prize: <span style="background-color: #6BFEF6">{{ item.name }}</span></p>
+        <p>Today Prize: <span style="background-color: #6BFEF6">{{events.product_name}}</span></p>
     </div>
 
     <form class="form-bid message" id="signin">

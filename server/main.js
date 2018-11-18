@@ -11,20 +11,35 @@ Meteor.startup(() => {
 	 //  	createdAt: new Date()
   //     });
 
-	Events.insert({
-	  	productID: "j", 
-	    event_name: "j", 
-	  	event_location: "j", 
-	  	event_time: "j",
-	  	product_name: "j",
-	  	product_initialPrice: "j",
-	    winner_name: "j", 
-	    winner_price: "j", 
-	    bid_time: "j", 
-	    bidstart: "j",
-	    launchedAt: "j", 
-	    finishedAt: "j",
-	    createdAt: "j"
-  	});
+	// Events.insert({
+	//   	productID: "xx", 
+	//     event_name: "la super event", 
+	//   	event_location: "au liban", 
+	//   	event_time: "09/09/1900",
+	//   	product_name: "pirogue",
+	//   	product_initialPrice: 145,
+	//     winner_name: null, 
+	//     winner_price: null, 
+	//     bid_time: null, 
+	//     bidstart: null,
+	//     launchedAt: null, 
+	//     finishedAt: null,
+	//     createdAt: new Date()
+ //  	});
+ // Events.insert({
+	//   	productID: "cc", 
+	//     event_name: "turing racer", 
+	//   	event_location: "à paris", 
+	//   	event_time: "01/02/1300",
+	//   	product_name: "voiture",
+	//   	product_initialPrice: 191,
+	//     winner_name: null, 
+	//     winner_price: null, 
+	//     bid_time: null, 
+	//     bidstart: null,
+	//     launchedAt: null, 
+	//     finishedAt: null,
+	//     createdAt: new Date()
+ //  	});
 });
 

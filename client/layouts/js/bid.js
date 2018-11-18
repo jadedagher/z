@@ -3,7 +3,7 @@ import { Cookies } from 'meteor/mrt:cookies';
 import { ReactiveVar } from 'meteor/reactive-var';
 import d3 from 'd3';
 
-import { Bids, Items } from '../../../api/collections.js';
+import { Bids, Items, Events } from '../../../api/collections.js';
 
 import '../html/bid.html';
 
@@ -29,7 +29,8 @@ Template.bid.onCreated(function bodyOnCreated() {
 
   }else{
 
-    this.itemSub = this.subscribe("items"); //get items
+    this.itemSub = this.subscribe("items"); //get items data
+    this.itemSub = this.subscribe("events"); //get events data
     
     this.timer = new ReactiveVar(0);
     this.interval = Meteor.setInterval(() => this.timer.set(this.timer.get() + 1), 20);
@@ -41,6 +42,10 @@ Template.bid.onCreated(function bodyOnCreated() {
 
 
 Template.bid.helpers({
+
+  events(){
+    return Events.findOne({_id: FlowRouter.getParam("id")})
+  },
 
   item(){
     return Items.findOne({});

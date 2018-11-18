@@ -22,18 +22,17 @@ Template.home.helpers({
 
 Template.home.events({
 
-	 'click .active_event'(event, template){
-
+	 'submit .eventselection'(event){
 	 	event.preventDefault();
 
 		if(Meteor.user()===null){
 			alert("You should sign in before continue!");
 			FlowRouter.go('signin');
 		}else{
-			// let id = Events.find({}).fetch()[0]._id;
-			// console.log(id);
 
-			const eventID = template.find('#eventID').value;
+			const $el = $(event.currentTarget);
+			const eventID = $el.find('.eventID').val();
+			
 		  	FlowRouter.go('bid', {id: eventID});
 	    }
   	}

@@ -26,7 +26,6 @@ Template.home.onCreated(function bodyOnCreated() {
   }, 5000);
 
   this.itemSub = this.subscribe("items"); //get items
-  // this.eventSub = this.subscribe("events"); //get events
   
 });
 
@@ -37,11 +36,7 @@ Template.home.helpers({
 
   item(){
     return Items.findOne({});
-  },
-
-  // eventalllist(){
-  //   return Events.find({});
-  // }
+  }
 });
 
 Template.home.events({
