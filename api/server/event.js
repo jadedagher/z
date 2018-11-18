@@ -4,7 +4,7 @@ import { Events } from '../collections.js';
 Meteor.publish("events", function() {
   return Events.find({}, { 
   fields: { 
-  	productID: 1, 
+  	product_ID: 1, 
     event_name: 1, 
   	event_location: 1, 
   	event_time: 1,
@@ -16,7 +16,11 @@ Meteor.publish("events", function() {
     bidstart: 1,
     launchedAt: 1, 
     finishedAt: 1,
-    createdAt: 1
+    createdAt: 1, 
+
+    bidAt: 1, 
+    buyAt: 1
+
   }
   });
 });

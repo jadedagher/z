@@ -3,7 +3,7 @@ import { Cookies } from 'meteor/mrt:cookies';
 import { ReactiveVar } from 'meteor/reactive-var';
 import d3 from 'd3';
 
-import { Bids, Items, Events } from '../../../api/collections.js';
+import { Bids, Events } from '../../../api/collections.js';
 
 import '../html/bid.html';
 
@@ -29,7 +29,6 @@ Template.bid.onCreated(function bodyOnCreated() {
 
   }else{
 
-    this.itemSub = this.subscribe("items"); //get items data
     this.itemSub = this.subscribe("events"); //get events data
     
     this.timer = new ReactiveVar(0);
@@ -47,16 +46,12 @@ Template.bid.helpers({
     return Events.findOne({_id: FlowRouter.getParam("id")})
   },
 
-  item(){
-    return Items.findOne({});
-  },
-
-  price(initialPrice, bidAt, buyAt) {
+  price(product_initialPrice, bidAt, buyAt) {
 
     let elapstedTime;
 
     if (!bidAt) {
-      return initialPrice;
+      return product_initialPrice;
     } 
 
     // else if (bidAt && buyAt) {
@@ -69,7 +64,7 @@ Template.bid.helpers({
 
     const timer = Template.instance().timer.get(); // TO KEEP IN ORDER TO RELOAD HTMLÒ
     const timeToZero = 60;
-    let price = initialPrice - (elapstedTime * initialPrice) / timeToZero;
+    let price = product_initialPrice - (elapstedTime * product_initialPrice) / timeToZero;
     price = price >= 0 ? Math.round(price) : 0;
 
     // if(price === 0){
@@ -125,9 +120,11 @@ Template.bid.events({
         const $el = $(event.currentTarget);
 
         const $itemid = $el.find('.itemid');
+        const $eventid = $el.find('.eventid');
+
         const $itemprice = parseInt($el.find('.itemprice').val()); //converting itemprice in number
         
-        const data = {itemID: $itemid.val(), itemPrice: $itemprice};
+        const data = {itemID: $itemid.val(), eventID: $eventid.val(), itemPrice: $itemprice};
 
         alert("Hello "+Meteor.user().profile.firstname+", you just bid at " +$itemprice+ "€ Thank you!!!");
         

@@ -18,28 +18,10 @@
           <p class="lead text-muted">This is only for admin!</p>
 
           <br>
-            <p class="lead text-muted">1) Reset, will erase items DB</p>
-            <form class="resetgame">
-                <button class="btn-danger reset button btn btn-lg btn-block" type="submit">Reset Game</button>
-            </form>
-            <br>
-            <br>
-            <p class="lead text-muted">2) Populate BD, will insert an item</p>
-            <form class="populatedb">
-                <input type="text" id="itemname" class="itemname form-control" placeholder="Custom - Item name (text)" required="" autofocus="">
-                <input type="text" id="itemprice" class="itemprice form-control" placeholder="Custom - Item price (number)" required="" autofocus=""><br>
+            <p class="lead text-muted">Start bid, will launch the game</p>
 
-                <button class="btn-primary populate button btn btn-lg btn-block" type="submit">Custom - Populate item DB</button>
-            </form>
-            <p class="lead text-muted">or</p>
-            <form class="test_populatedb">
-                <button class="btn-primary test_populate button btn btn-lg btn-block" type="submit">Example - Populate item DB</button>
-            </form>
-            <br>
-            <br>
-            <p class="lead text-muted">3) Start bid, will launch the game</p>
-            <form class="startgame">
-                <input type="hidden" class="itemidpannel" value="{{item._id}}">
+            <form class="startgame">        
+                <input type="text" class="eventidpannel form-control" placeholder="event ID to trigger" required="" autofocus="">
                 <button class="btn-success timerstart button btn btn-lg btn-block" type="submit">Start bid</button>
             </form>
         </div>

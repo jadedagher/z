@@ -2,7 +2,7 @@ import { Template } from 'meteor/templating';
 import { Cookies } from 'meteor/mrt:cookies';
 import d3 from 'd3';
 
-import { Bids, Items, Events } from '../../../api/collections.js';
+import { Bids, Events } from '../../../api/collections.js';
 
 import '../html/home.html';
 import './eventlist.js';
@@ -25,18 +25,15 @@ Template.home.onCreated(function bodyOnCreated() {
     }
   }, 5000);
 
-  this.itemSub = this.subscribe("items"); //get items
   
 });
 
 Template.home.helpers({
+
   findfirstname(){
     return Meteor.user().profile.firstname;
-  }, 
-
-  item(){
-    return Items.findOne({});
   }
+  
 });
 
 Template.home.events({

@@ -1,7 +1,7 @@
 import { Template } from 'meteor/templating';
 import { Cookies } from 'meteor/mrt:cookies';
 
-import { Bids, Items } from '../../../api/collections.js';
+import { Bids } from '../../../api/collections.js';
 
 import '../html/login.html';
 

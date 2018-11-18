@@ -17,9 +17,9 @@
 
     <div class="up jumbotron">
         <h3>Remaining Time:</h3>
-        <h2 style="color: #6C6CCA" id="time_output">{{timeRemaining item.bidAt item.buyAt}}s // {{milisecond item.bidAt item.buyAt}}ms</h2>
+        <h2 style="color: #6C6CCA" id="time_output">{{timeRemaining events.bidAt events.buyAt}}s // {{milisecond events.bidAt events.buyAt}}ms</h2>
         <h3>Item Price:</h3>
-        <h2 style="color: #6C6CCA" id="item_price">{{price item.initialPrice item.bidAt item.buyAt }} €</h2>
+        <h2 style="color: #6C6CCA" id="item_price">{{price events.product_initialPrice events.bidAt events.buyAt }} €</h2>
         <p>Today Prize: <span style="background-color: #6BFEF6">{{events.product_name}}</span></p>
     </div>
 
@@ -30,8 +30,9 @@
       <br>
 
       <p class="h5 font-weight-normal">RULES: the first one to Bid win the Prize</p>
-      <input type="hidden" class="itemid" value="{{item._id}}">
-      <input type="hidden" class="itemprice" value="{{price item.initialPrice item.bidAt item.buyAt}}">
+      <input type="hidden" class="itemid" value="{{events.product_ID}}">
+      <input type="hidden" class="eventid" value="{{events._id}}">
+      <input type="hidden" class="itemprice" value="{{price events.product_initialPrice events.bidAt events.buyAt}}">
 
       <br>
 

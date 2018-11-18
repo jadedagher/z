@@ -4,6 +4,7 @@ import { Bids } from '../collections.js';
 Meteor.publish("bids", function() {
   return Bids.find({}, { 
   fields: { 
+    event_ID: 1,
   	firstname: 1, 
     lastname: 1, 
   	email: 1, 

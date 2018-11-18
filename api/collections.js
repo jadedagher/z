@@ -3,6 +3,8 @@ import { Mongo } from 'meteor/mongo';
 //declare the Mongo collections to use
 
 export const Bids = new Mongo.Collection('bids');
-export const Items = new Mongo.Collection('items');
+export const Products = new Mongo.Collection('products');
 export const Events = new Mongo.Collection('events');
+export const Brands = new Mongo.Collection('brands');
+
 

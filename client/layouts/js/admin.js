@@ -2,7 +2,7 @@ import { Template } from 'meteor/templating';
 import { Cookies } from 'meteor/mrt:cookies';
 import d3 from 'd3';
 
-import { Bids, Items } from '../../../api/collections.js';
+import { Bids, Items, Events } from '../../../api/collections.js';
 
 import '../html/admin.html';
 
@@ -24,70 +24,74 @@ Template.admin.onCreated(function bodyOnCreated() {
     }
   }, 150);
 
-  this.itemSub = this.subscribe("items"); //get items
+  // this.itemSub = this.subscribe("items"); //get items
+  this.eventsSub = this.subscribe("events"); //get events
 
 });
 
 Template.admin.helpers({
   
-  item(){
-    return Items.findOne({});
-  }
+  // item(){
+  //   return Items.findOne({});
+  // }
 
 });
 
 Template.admin.events({
 
   'submit .startgame'(event){
+
       event.preventDefault();
       const $el = $(event.currentTarget);
-      const $itemid = $el.find('.itemidpannel');
+      const $eventid = $el.find('.eventidpannel');
 
-      Meteor.call("startBid", $itemid.val(), function(err,res){
+      Meteor.call("startBid", $eventid.val(), function(err,res){
         if(err){
           console.log('Error startbid: '+err);
         }
       });
-    FlowRouter.go('bid');
-  }, 
-
-  'submit .resetgame'(event){
-
-      event.preventDefault();
-
-      Meteor.call("resetBid", function(err,res){
-        if(err){
-          console.log('Error resetbid: '+err);
-        }
-      });
-  },
-
-  'submit .populatedb'(event, template){
-      event.preventDefault();
-
-      const $inputname = template.find('#itemname').value;
-      const $inputprice = parseInt(template.find('#itemprice').value);
-      
-      const data = {itemname: $inputname, itemprice: $inputprice};
-
-      Meteor.call("populateitemdb", data, function(err,res){
-        if(err){
-          console.log('Error populateitemdb: '+err);
-        }
-      });
-    FlowRouter.go('bid');
-  },
-
-  'submit .test_populatedb'(event){
-      event.preventDefault();
-
-      Meteor.call("test_populateitemdb", function(err,res){
-        if(err){
-          console.log('Error test_populateitemdb: '+err);
-        }
-      });
-    FlowRouter.go('bid');
+    FlowRouter.go('bid', {id: $eventid.val()});
   }
+
+  //refaire le dashboard
+
+  // 'submit .resetgame'(event){
+
+  //     event.preventDefault();
+
+  //     Meteor.call("resetBid", function(err,res){
+  //       if(err){
+  //         console.log('Error resetbid: '+err);
+  //       }
+  //     });
+  // },
+
+  // 'submit .populatedb'(event, template){
+  //     event.preventDefault();
+
+  //     const $inputname = template.find('#itemname').value;
+  //     const $inputprice = parseInt(template.find('#itemprice').value);
+      
+  //     const data = {itemname: $inputname, itemprice: $inputprice};
+
+  //     Meteor.call("populateitemdb", data, function(err,res){
+  //       if(err){
+  //         console.log('Error populateitemdb: '+err);
+  //       }
+  //     });
+  //   FlowRouter.go('bid');
+  // },
+
+  // 'submit .test_populatedb'(event){
+  //     event.preventDefault();
+
+  //     Meteor.call("test_populateitemdb", function(err,res){
+  //       if(err){
+  //         console.log('Error test_populateitemdb: '+err);
+  //       }
+  //     });
+  //   FlowRouter.go('bid');
+  // }
 });
 
 

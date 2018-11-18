@@ -1,7 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { check, Match } from 'meteor/check';
 
-import { Bids, Items, Events } from '../collections.js';
+import { Bids, Products, Events, Brands } from '../collections.js';
 
 
 Meteor.methods({
@@ -37,14 +37,16 @@ Meteor.methods({
 
 		check(data, {
       itemID: String,
+      eventID: String, 
       itemPrice: Number
 		});
     
-    if (data.itemID =="" || data.itemPrice == null) {
+    if (data.itemID =="" || data.eventID =="" || data.itemPrice == null) {
       throw new Meteor.Error("message-empty", "something went wrong!");
     } else {
 
       Bids.insert({
+        event_ID: data.eventID,
         firstname: Meteor.user().profile.firstname,
         lastname: Meteor.user().profile.lastname,
         email: Meteor.user().emails[0].address,
@@ -53,50 +55,52 @@ Meteor.methods({
         createdAt: new Date()
       });
 
-      Items.update( data.itemID , { $set: { buyAt: Date.now() } });
+      Events.update( data.itemID , { $set: { buyAt: Date.now() } });
     }
 	}, 
 
   //admin function
-  'startBid'(itemID){
-      const res = Items.update( itemID , { $set: { bidAt: Date.now(), buyAt: null }});
-  },
-
-  'resetBid'(){
-      const res = Items.rawCollection().drop();
-  },
-
-  'test_populateitemdb'(){
-      Items.insert({
-        name: "Google Home MINI",
-        image: 1,
-        initialPrice: 45, 
-        bidAt: null,
-        buyAt: 1,
-        createdAt: new Date()
-      });
-  },
-
-  'populateitemdb'(data){
-
-    check(data, {
-      itemname: String,
-      itemprice: Number
-    });
-
-    if (data.itemname =="" || data.itemprice == null) {
-      throw new Meteor.Error("message-empty", "fill the fields");
-    } else {
-
-      Items.insert({
-        name: data.itemname,
-        image: 1,
-        initialPrice: data.itemprice, 
-        bidAt: null,
-        buyAt: 1,
-        createdAt: new Date()
-      });
-    }
+  'startBid'(eventid){
+      const res = Events.update( eventid , { $set: { bidAt: Date.now(), buyAt: null }});
   }
+
+  //refaire le dashboard 
+
+  // 'resetBid'(){
+  //     const res = Items.rawCollection().drop();
+  // },
+
+  // 'test_populateitemdb'(){
+  //     Items.insert({
+  //       name: "Google Home MINI",
+  //       image: 1,
+  //       initialPrice: 45, 
+  //       bidAt: null,
+  //       buyAt: 1,
+  //       createdAt: new Date()
+  //     });
+  // },
+
+  // 'populateitemdb'(data){
+
+  //   check(data, {
+  //     itemname: String,
+  //     itemprice: Number
+  //   });
+
+  //   if (data.itemname =="" || data.itemprice == null) {
+  //     throw new Meteor.Error("message-empty", "fill the fields");
+  //   } else {
+
+  //     Items.insert({
+  //       name: data.itemname,
+  //       image: 1,
+  //       initialPrice: data.itemprice, 
+  //       bidAt: null,
+  //       buyAt: 1,
+  //       createdAt: new Date()
+  //     });
+  //   }
+  // }
 });
 
