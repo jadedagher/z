@@ -13,7 +13,7 @@ ServiceConfiguration.configurations.remove({
 ServiceConfiguration.configurations.insert({
     service: "facebook",
     appId: '255612668469172',
-    secret: '6b6000029a9a5572690304c1d442ed35'
+    secret: 'xx'
 });
 
 Accounts.onCreateUser(function (options, user) {
