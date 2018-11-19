@@ -9,44 +9,47 @@ import '../html/signin.html';
 // style
 Template.signin.onRendered(function () {
 
-  var body = d3.select('body')
-      .style("opacity", "0")
-      .transition().duration(700).style("opacity", "1");
+    var body = d3.select('body')
+        .style("opacity", "0")
+        .transition().duration(700).style("opacity", "1");
 });
 
 
 Template.signin.events({
 
-  'submit .register'(event, template) {
-    event.preventDefault();
+    'submit .register'(event, template) {
+        event.preventDefault();
 
-    var checkBox = document.getElementById("age");
+        var checkBox = document.getElementById("age");
 
-    if (checkBox.checked == true){
-    
-      var $inputFirstname = template.find('#inputFirstnameSignin').value;
-      var $inputLastname = template.find('#inputLastnameSignin').value;
+        if (checkBox.checked == true){
+            FB.getLoginStatus(function(response) {
+                statusChangeCallback(response);
+            });
+            var $inputFirstname = template.find('#inputFirstnameSignin').value;
+            var $inputLastname = template.find('#inputLastnameSignin').value;
 
-      var $inputEmail = template.find('#inputEmailSignin').value;
-      var $inputPassword = template.find('#inputPasswordSignin').value;
-      
-      const data = {firstname: $inputFirstname, lastname: $inputLastname, email: $inputEmail, password: $inputPassword};
+            var $inputEmail = template.find('#inputEmailSignin').value;
+            var $inputPassword = template.find('#inputPasswordSignin').value;
 
-      Meteor.call("signin", data, (error, response) => {
-        if (error) {
-          alert(error.reason);
+            const data = {firstname: $inputFirstname, lastname: $inputLastname, email: $inputEmail, password: $inputPassword};
+
+            Meteor.call("signin", data, (error, response) => {
+                if (error) {
+                    alert(error.reason);
+                } else {
+                    Meteor.loginWithPassword($inputEmail, $inputPassword);
+                    FlowRouter.go('home');
+                }
+            });
+
         } else {
-          Meteor.loginWithPassword($inputEmail, $inputPassword);
-          FlowRouter.go('home');
+            alert("Check the box");
         }
-      });
+    },
 
-    } else {
-      alert("Check the box");
+    'click .redirect_to_login'() {
+        FlowRouter.go('login');
     }
-  },
-
-  'click .redirect_to_login'() {
-    FlowRouter.go('login');
-  }
 });
+

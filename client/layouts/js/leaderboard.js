@@ -18,7 +18,7 @@ Template.leaderboard.onCreated(function bodyOnCreated() {
 
   if(Meteor.user()===null){
     alert("Smart ass!!! You should sign in to see this babe!");
-    FlowRouter.go('login');
+    FlowRouter.go('/');
 
   }else{
     this.bidSub = this.subscribe("bids"); //get bids

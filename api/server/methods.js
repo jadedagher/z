@@ -1,9 +1,31 @@
 import { Meteor } from 'meteor/meteor';
 import { check, Match } from 'meteor/check';
+import {Accounts} from 'meteor/accounts-base';
+import  {ServiceConfiguration} from 'meteor/service-configuration';
 
 import { Bids, Products, Events, Brands } from '../collections.js';
 
+let secretKey = Meteor.settings;
+ServiceConfiguration.configurations.remove({
+    service: "facebook"
+});
 
+ServiceConfiguration.configurations.insert({
+    service: "facebook",
+    appId: '255612668469172',
+    secret: '6b6000029a9a5572690304c1d442ed35'
+});
+
+Accounts.onCreateUser(function (options, user) {
+
+    if (!user.services.facebook) {
+        return user;
+    }
+    user.username = user.services.facebook.name;
+    user.emails = [{address: user.services.facebook.email}];
+
+    return user;
+});
 Meteor.methods({
 
   'signin'(data) {

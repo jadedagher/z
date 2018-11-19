@@ -17,7 +17,7 @@ Template.soon.onRendered(function () {
 Template.soon.onCreated(function bodyOnCreated() {
 	if(Meteor.user()===null){
 	    alert("Smart ass!!! You should sign in to see this babe!");
-	    FlowRouter.go('login');
+	    FlowRouter.go('/');
 	    Template.soon.hide();   
 	}
 });

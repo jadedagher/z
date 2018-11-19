@@ -22,3 +22,7 @@ kadira:flow-router
 kadira:blaze-layout
 accounts-ui
 accounts-password
+accounts-facebook
+service-configuration
+meteor
+mrt:moment

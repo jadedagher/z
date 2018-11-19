@@ -20,7 +20,7 @@ Template.home.onCreated(function bodyOnCreated() {
   //set inerval to let meteor create user and check it 
   setInterval(function(){ 
     if(Meteor.user()===null){
-      FlowRouter.go('login');
+      FlowRouter.go('/');
       location.reload();
     }
   }, 5000);
@@ -58,7 +58,7 @@ Template.home.events({
     'click .logout'(event){
       event.preventDefault();
       Meteor.logout();
-      FlowRouter.go('login');
+      FlowRouter.go('/');
     },
 
   	// filters

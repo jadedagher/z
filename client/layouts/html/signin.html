@@ -9,7 +9,28 @@
 
     {{ > bootstraplinks}}
 
-    
+    <script>
+        window.fbAsyncInit = function() {
+            FB.init({
+                appId      : '{your-app-id}',
+                cookie     : true,
+                xfbml      : true,
+                version    : '{api-version}'
+            });
+
+            FB.AppEvents.logPageView();
+
+        };
+
+        (function(d, s, id){
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) {return;}
+            js = d.createElement(s); js.id = id;
+            js.src = "https://connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+
 </head>
 
 <body class="text-align">
@@ -34,7 +55,6 @@
             <button class="button btn-lg btn-block" type="submit">Sign up!</button>
             <br>
             <h4 style="text-align: center;">You already have an account ? <br><a class="redirect_to_login" style="color: #6C6CCA;">Log in</a></h4>
-        </form>        
-
+        </form>
 </body>
 </template>
