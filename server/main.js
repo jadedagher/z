@@ -2,22 +2,20 @@ import { Meteor } from 'meteor/meteor';
 import { Items, Events } from '../api/collections.js';
 
 Meteor.startup(() => {
+
     ServiceConfiguration.configurations.remove({
         service: 'google'
-    });
-
-    ServiceConfiguration.configurations.insert({
-        service: 'google',
-        // clientId: "857471503477-divdiijojp9iok1dd22sj4kkdhoub025.apps.googleusercontent.com",
-        // secret: "CEr9DAhMEFuVYR3g6ZOnhGfx",
-        clientId: Meteor.settings.google.client_ID,
-        secret: Meteor.settings.google.client_secret,
-        // validClientIds: Meteor.settings.google.validClientIds
     });
     ServiceConfiguration.configurations.remove({
         service: "facebook"
     });
 
+
+    ServiceConfiguration.configurations.insert({
+        service: 'google',
+        clientId: Meteor.settings.google.client_ID,
+        secret: Meteor.settings.google.client_secret,
+    });
     ServiceConfiguration.configurations.insert({
         service: "facebook",
         appId:  Meteor.settings.facebook.app_ID,
