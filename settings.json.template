@@ -1,0 +1,12 @@
+{
+  "google": {
+    "client_ID": "xxxxxx",
+    "client_secret": "xxxx"
+
+  },
+  "facebook": {
+    "app_ID": "xxxxx",
+    "client_secret": "xxxxx"
+
+  }
+}
