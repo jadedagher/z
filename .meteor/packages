@@ -26,3 +26,4 @@ accounts-facebook
 service-configuration
 meteor
 mrt:moment
+accounts-google

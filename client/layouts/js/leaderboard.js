@@ -1,5 +1,4 @@
 import { Template } from 'meteor/templating';
-import { Cookies } from 'meteor/mrt:cookies';
 import d3 from 'd3';
 
 import { Bids } from '../../../api/collections.js';

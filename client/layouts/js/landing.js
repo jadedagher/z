@@ -1,8 +1,6 @@
 import { Template } from 'meteor/templating';
-import { Cookies } from 'meteor/mrt:cookies';
 import d3 from 'd3';
 
-import { Bids } from '../../../api/collections.js';
 
 import '../html/landing.html';
 
@@ -32,6 +30,22 @@ Template.landing.events({
             if (err) {
                 console.log('Handle errors here: ', err);
             } else {
+                FlowRouter.go('home')
+            }
+        });
+    },
+    'click .redirect_to_loginGoogle'() {
+        // event.preventDefault();
+        Meteor.loginWithGoogle({
+
+            requestOfflineToken: true,
+            requestPermissions: ['email', 'profile'],
+
+        }, (error) => {
+            if (error) {
+                alert(error);
+            }
+            else {
                 FlowRouter.go('home')
             }
         });

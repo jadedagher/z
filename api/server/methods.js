@@ -5,17 +5,6 @@ import  {ServiceConfiguration} from 'meteor/service-configuration';
 
 import { Bids, Products, Events, Brands } from '../collections.js';
 
-let secretKey = Meteor.settings;
-ServiceConfiguration.configurations.remove({
-    service: "facebook"
-});
-
-ServiceConfiguration.configurations.insert({
-    service: "facebook",
-    appId: '255612668469172',
-    secret: 'xx'
-});
-
 Accounts.onCreateUser(function (options, user) {
 
     if (!user.services.facebook) {
@@ -23,7 +12,6 @@ Accounts.onCreateUser(function (options, user) {
     }
     user.username = user.services.facebook.name;
     user.emails = [{address: user.services.facebook.email}];
-
     return user;
 });
 Meteor.methods({
