@@ -30,11 +30,6 @@ Template.admin.onCreated(function bodyOnCreated() {
 });
 
 Template.admin.helpers({
-  
-  // item(){
-  //   return Items.findOne({});
-  // }
-
 });
 
 Template.admin.events({
@@ -51,20 +46,23 @@ Template.admin.events({
         }
       });
     FlowRouter.go('bid', {id: $eventid.val()});
-  }
+  },
 
   //refaire le dashboard
 
-  // 'submit .resetgame'(event){
+  'submit .resetgame'(event){
 
-  //     event.preventDefault();
+      event.preventDefault();
+      const $el = $(event.currentTarget);
+      const $eventid = $el.find('.eventidpannel_reset');
 
-  //     Meteor.call("resetBid", function(err,res){
-  //       if(err){
-  //         console.log('Error resetbid: '+err);
-  //       }
-  //     });
-  // },
+      Meteor.call("resetBid", $eventid.val(), function(err,res){
+        if(err){
+          console.log('Error resetbid: '+err);
+        }
+      });
+      FlowRouter.go('bid', {id: $eventid.val()});
+  },
 
   // 'submit .populatedb'(event, template){
   //     event.preventDefault();

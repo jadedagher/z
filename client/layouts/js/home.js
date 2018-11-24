@@ -23,29 +23,19 @@ Template.home.onCreated(function bodyOnCreated() {
       FlowRouter.go('/');
       location.reload();
     }
-  }, 5000);
+  }, 1000);
 
   
 });
 
 Template.home.helpers({
 
-  findfirstname(){
-    return Meteor.user().profile.firstname;
-  }
-  
+  // findfirstname(){
+  //   return Meteor.user().firstname;
+  // }
 });
 
 Template.home.events({
-
-	 'click .active_event'(){
-		if(Meteor.user()===null){
-			alert("You should sign in before continue!");
-			FlowRouter.go('signin');
-	  }else{
-	  		FlowRouter.go('bid', {id:1});
-	    }
-  	},
 
   	'click .over_event'(){
     	FlowRouter.go('over');

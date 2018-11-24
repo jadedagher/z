@@ -14,7 +14,7 @@
 <body class="text-align">
     <section style="background-color: transparent !important;" class="jumbotron text-center">
         <div class="container">
-          <h1 class="jumbotron-heading">Hello {{findfirstname}}!</h1>
+          <h1 class="jumbotron-heading">Hello !</h1>
           <p class="lead text-muted">Here is the list of Pulse Events,<br>join a challenge now!</p>
           <br>
           <a class="lead todayfilter">Today</a> - <a class="lead incomingfilter">Incoming</a> - <a class="lead pastfilter">Past</a> - <a class="lead allfilter">All</a>
@@ -22,14 +22,38 @@
           <br>
           <br>
 
-
+          <div class="todaycontainer list-group">
+            <h4 class="text-muted" style="text-align: left;">Today challenge <img src="/tada.png" class="emoji" alt="tada"></h4>
           {{#if Template.subscriptionsReady}}
-            {{#each eventalllist}}
+            {{#each event_today_list}}
                 {{> eventlist}}
             {{/each}}
             {{else}}
               <div>nothing here</div>
           {{/if}}
+          </div>
+
+          <div class="incomingcontainer list-group">
+            <h4 class="text-muted" style="text-align: left;">Incoming challenges <img src="/soon.png" class="emoji" alt="tada"></h4>
+          {{#if Template.subscriptionsReady}}
+            {{#each event_incoming_list}}
+                {{> eventlist}}
+            {{/each}}
+            {{else}}
+              <div>nothing here</div>
+          {{/if}}
+          </div>
+
+          <div class="pastcontainer list-group">
+            <h4 class="text-muted" style="text-align: left;">Past challenges</h4>
+          {{#if Template.subscriptionsReady}}
+            {{#each event_past_list}}
+                {{> eventlist}}
+            {{/each}}
+            {{else}}
+              <div>nothing here</div>
+          {{/if}}
+          </div>
 
 
           <br>

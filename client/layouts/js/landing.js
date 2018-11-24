@@ -24,28 +24,25 @@ Template.landing.events({
     'click .redirect_to_signin'() {
         FlowRouter.go('signin');
     },
+
     'click .redirect_to_loginFB'() {
-        // event.preventDefault();
         Meteor.loginWithFacebook({requestPermissions: ['public_profile', 'email']}, function(err){
             if (err) {
                 console.log('Handle errors here: ', err);
-            } else {
+            }else{
                 FlowRouter.go('home')
             }
         });
     },
-    'click .redirect_to_loginGoogle'() {
-        // event.preventDefault();
-        Meteor.loginWithGoogle({
 
+    'click .redirect_to_loginGoogle'() {
+        Meteor.loginWithGoogle({
             requestOfflineToken: true,
             requestPermissions: ['email', 'profile'],
-
         }, (error) => {
             if (error) {
                 alert(error);
-            }
-            else {
+            }else{
                 FlowRouter.go('home')
             }
         });

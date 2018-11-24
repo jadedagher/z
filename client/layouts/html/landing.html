@@ -9,7 +9,6 @@
     <title>Welcome to Pulse app</title>
 
     {{ > bootstraplinks}}
-    {{ > bootstraplinksSocialButton}}
 
 </head>
 
@@ -23,28 +22,16 @@
             <p class="lead text-muted" style="text-align: center;">Ici message accrocheur</p>
         </div>
 
-        <div class="loginandsigninlink">
-            <button class="redirect_to_signin btn-success">Sign up</button>
-            <button class="redirect_to_login button">Log in</button>
+        <div class="login_signin_link">
+            <h4 style="text-align: center;">Create your account!</h4>
+            <button class="button btn-lg btn-block btn-danger redirect_to_loginGoogle"><img src="googleicon.png" class="iconfacebookgoogle">&nbsp;&nbsp; With Google account</button><br>
+            <button class="button btn-lg btn-block btn-primary redirect_to_loginFB"><img src="facebookicon.png" class="iconfacebookgoogle">&nbsp;With Facebook account</button><br>
+            <button class="btn-lg btn-block  redirect_to_signin" style="background-color: springgreen">Sign in manually</button>
+            <br><br>
+            <h4 style="text-align: center;">You already have an account ?</h4>
+            <button class="btn-lg btn-block btn-secondary redirect_to_login">Log in</button><br>
         </div>
 
 </body>
 
-    <body style="text-align:center">
-    <div class="btn-group">
-        <a class='redirect_to_loginGoogle btn btn-danger disabled'><i class="fa fa-google-plus" style="width:16px; height:20px"></i></a>
-        <a class='redirect_to_loginGoogle btn btn-danger' href='' style="width:12em;"> Sign in with Google</a>
-    </div>
-    <br /><br />
-    <div class="btn-group">
-        <a class='redirect_to_loginFB btn btn-primary disabled'><i class="fa fa-facebook" style="width:16px; height:20px"></i></a>
-        <a class='redirect_to_loginFB btn btn-primary ' href='' style="width:12em"> Sign in with Facebook</a>
-    </div>
-    <br /><br />
-    <div class="btn-group">
-        <a class='btn btn-info disabled'><i class="fa fa-twitter" style="width:16px; height:20px"></i></a>
-        <a class='btn btn-info ' href='' style="width:12em"> Sign in with Twitter</a>
-    </div>
-    <br /><br />
-    </body>
 </template>

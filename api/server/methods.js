@@ -5,15 +5,30 @@ import  {ServiceConfiguration} from 'meteor/service-configuration';
 
 import { Bids, Products, Events, Brands } from '../collections.js';
 
-Accounts.onCreateUser(function (options, user) {
 
-    if (!user.services.facebook) {
-        return user;
+Accounts.onCreateUser(function (options, user) {
+    if (user.services.google) {
+
+      user.firstname = user.services.google.given_name;
+      user.lastname = user.services.google.family_name;
+      user.email = user.services.google.email;
+      return user;
+
+    } else if (user.services.facebook){
+
+      user.firstname = user.services.facebook.first_name;
+      user.lastname = user.services.facebook.last_name;
+      user.email = user.services.facebook.email;
+      return user;
+
+    } else {
+      user.firstname = options.profile.firstname;
+      user.lastname = options.profile.lastname;
+      user.email = options.email;
+      return user;
     }
-    user.username = user.services.facebook.name;
-    user.emails = [{address: user.services.facebook.email}];
-    return user;
 });
+
 Meteor.methods({
 
   'signin'(data) {
@@ -57,9 +72,9 @@ Meteor.methods({
 
       Bids.insert({
         event_ID: data.eventID,
-        firstname: Meteor.user().profile.firstname,
-        lastname: Meteor.user().profile.lastname,
-        email: Meteor.user().emails[0].address,
+        firstname: Meteor.user().firstname,
+        lastname: Meteor.user().lastname,
+        email: Meteor.user().email,
         itemID: data.itemID,
         itemPrice: data.itemPrice,
         createdAt: new Date()
@@ -72,14 +87,13 @@ Meteor.methods({
   //admin function
   'startBid'(eventid){
       const res = Events.update( eventid , { $set: { bidAt: Date.now(), buyAt: null }});
-  }
+  },
+
+  'resetBid'(eventid){
+    const res = Events.update( eventid , { $set: { bidAt: null, buyAt: 1 }});
+  },
 
   //refaire le dashboard 
-
-  // 'resetBid'(){
-  //     const res = Items.rawCollection().drop();
-  // },
-
   // 'test_populateitemdb'(){
   //     Items.insert({
   //       name: "Google Home MINI",

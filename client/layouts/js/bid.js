@@ -126,7 +126,7 @@ Template.bid.events({
         
         const data = {itemID: $itemid.val(), eventID: $eventid.val(), itemPrice: $itemprice};
 
-        alert("Hello "+Meteor.user().profile.firstname+", you just bid at " +$itemprice+ "€ Thank you!!!");
+        alert("You just bid at " +$itemprice+ "€ Thank you!!!");
         
         Meteor.call("sendBid", data, (error, response) => {
           if (error) {

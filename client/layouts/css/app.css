@@ -126,6 +126,18 @@ body {
   border-top-right-radius: 0;
 }
 
+.login_signin_link{
+  width: 100%;
+  max-width: 350px;
+  padding: 10px;
+  margin: 0 auto;
+  position: fixed;
+  left: 0px;
+  right: 0px;
+  bottom: 375px;
+  height: 0px;
+}
+
 
 .form-signin {
   width: 100%;
@@ -214,27 +226,10 @@ body {
   border-top-right-radius: 0;
 }
 
-
-.loginandsigninlink{
-    position: fixed;
-    left: 0px;
-    right: 0px;
-    bottom: 0px;
-    height: 80px;
-    border-top: 1px solid #EDEEF2;
-    background-color: #FAFBFF;
-    padding: 20px;
-    display: flex;
-    flex-flow: row;
-  }
-
-.loginandsigninlink button {
-    flex-grow: 160;
-    margin-left: 10px;
-    border-radius: 10px;
-    width: 20px;
+.iconfacebookgoogle{
+  height: 30px; 
+  width: 30px;
 }
-
 
 .rainbow:hover {
 -webkit-animation:rainbow 1s infinite;

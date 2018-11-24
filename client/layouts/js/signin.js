@@ -23,9 +23,7 @@ Template.signin.events({
         var checkBox = document.getElementById("age");
 
         if (checkBox.checked == true){
-            FB.getLoginStatus(function(response) {
-                statusChangeCallback(response);
-            });
+
             var $inputFirstname = template.find('#inputFirstnameSignin').value;
             var $inputLastname = template.find('#inputLastnameSignin').value;
 
