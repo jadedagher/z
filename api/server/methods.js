@@ -84,6 +84,10 @@ Meteor.methods({
     }
 	}, 
 
+  'getfirstname'(userId){
+    return Meteor.users.findOne({_id: userId}).firstname;
+  },
+
   //admin function
   'startBid'(eventid){
       const res = Events.update( eventid , { $set: { bidAt: Date.now(), buyAt: null }});

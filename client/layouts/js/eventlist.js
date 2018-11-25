@@ -13,9 +13,19 @@ Template.home.onCreated(function bodyOnCreated() {
 
 });
 
+Template.eventlist.helpers({
+	formatDate(date){
+		return moment(date).format('MM-DD-YYYY HH:mm');
+	}
+});
+
 Template.home.helpers({
 	event_today_list(){
-		return Events.find({"event_time" : {"$eq": new Date()}});
+
+		const start_day = moment().startOf('day')._d;
+		const end_day = moment().endOf('day')._d;
+
+		return Events.find({"event_time" : {"$gte": start_day, "$lte": end_day}});
 	},
 
 	event_incoming_list(){
@@ -23,17 +33,34 @@ Template.home.helpers({
 	},
 
 	event_past_list(){
-		return Events.find({"event_time" : {"$lte": new Date()}});
+
+		var today = new Date();
+		var yesterday = new Date(today.getTime() - (24*60*60*1000));
+
+		return Events.find({"event_time" : {"$lte": yesterday}});
 	}
+
 });
 
 Template.home.events({
 
 	'submit .eventselection'(event){
+
 	 	event.preventDefault();
 	 	const $el = $(event.currentTarget);
 	 	const eventID = $el.find('.eventID').val();
-	 	FlowRouter.go('bid', {id: eventID});
+	 	const eventtime = Date.parse($el.find('.eventtime').val());
+
+	 	const start_day = Date.parse(moment().startOf('day')._d);
+		const end_day = Date.parse(moment().endOf('day')._d);
+
+	 	if(eventtime > start_day && eventtime < end_day){
+	 		FlowRouter.go('bid', {id: eventID});
+	 	} else if (eventtime < new Date()){
+	 		FlowRouter.go('over', {id: eventID});
+	 	} else {
+	 		FlowRouter.go('soon', {id: eventID});
+	 	}
   	}
  
 });

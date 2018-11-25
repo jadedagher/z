@@ -27,3 +27,4 @@ service-configuration
 meteor
 mrt:moment
 accounts-google
+session

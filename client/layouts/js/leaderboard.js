@@ -22,12 +22,17 @@ Template.leaderboard.onCreated(function bodyOnCreated() {
   }else{
     this.bidSub = this.subscribe("bids"); //get bids
   }
+
 });
 
 Template.leaderboard.helpers({
   
   bidslist(){
-    return Bids.find({}, { sort: { itemPrice: -1 } });
+    return Bids.find({event_ID: FlowRouter.getParam("id")}, { sort: { itemPrice: -1 } });
+  }, 
+
+  formatDate(date){
+    return moment(date).format('HH:mm:ss');
   }
 
 });
@@ -37,5 +42,5 @@ Template.leaderboard.events({
   'click .cancelbtnbid'(){
     FlowRouter.go('home');
   }
-  
+
 });

@@ -7,8 +7,9 @@
 				<small>{{event_location}}</small>
 			</div>
 			<p class="mb-1">Prize: {{ product_name }}<br> Beginning Price: <span class="underlineprice">{{ product_initialPrice }}€</span></p>
-			<small>{{event_time}}</small>
+			<small>{{formatDate event_time}}</small>
 			<input type="hidden" class="eventID" value="{{_id}}">
+			<input type="hidden" class="eventtime" value="{{event_time}}">
 	     </button>
      </form>
      <br>
