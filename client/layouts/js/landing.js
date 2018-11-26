@@ -30,7 +30,7 @@ Template.landing.events({
             if (err) {
                 console.log('Handle errors here: ', err);
             }else{
-                setInterval(function(){FlowRouter.go('home')}, 1000);
+                FlowRouter.go('home')
             }
         });
     },
@@ -43,7 +43,7 @@ Template.landing.events({
             if (error) {
                 console.log('Handle errors here: ', err);
             }else{
-                setInterval(function(){FlowRouter.go('home')}, 1000);
+                FlowRouter.go('home')
             }
         });
     }

@@ -48,22 +48,28 @@ Template.home.helpers({
 Template.home.events({
 
 	'submit .eventselection'(event){
+		event.preventDefault();
 
-	 	event.preventDefault();
-	 	const $el = $(event.currentTarget);
-	 	const eventID = $el.find('.eventID').val();
-	 	const eventtime = Date.parse($el.find('.eventtime').val());
+		if(Meteor.user()===null){
+			alert("You should sign-in or log-in before see this!")
+			FlowRouter.go('/');
+			location.reload();
+	    } else {
+	    	const $el = $(event.currentTarget);
+		 	const eventID = $el.find('.eventID').val();
+		 	const eventtime = Date.parse($el.find('.eventtime').val());
 
-	 	const start_day = Date.parse(moment().startOf('day')._d);
-		const end_day = Date.parse(moment().endOf('day')._d);
+		 	const start_day = Date.parse(moment().startOf('day')._d);
+			const end_day = Date.parse(moment().endOf('day')._d);
 
-	 	if(eventtime > start_day && eventtime < end_day){
-	 		FlowRouter.go('bid', {id: eventID});
-	 	} else if (eventtime < new Date()){
-	 		FlowRouter.go('over', {id: eventID});
-	 	} else {
-	 		FlowRouter.go('soon', {id: eventID});
-	 	}
+		 	if(eventtime > start_day && eventtime < end_day){
+		 		FlowRouter.go('bid', {id: eventID});
+		 	} else if (eventtime < new Date()){
+		 		FlowRouter.go('over', {id: eventID});
+		 	} else {
+		 		FlowRouter.go('soon', {id: eventID});
+		 	}
+		}
   	}
  
 });

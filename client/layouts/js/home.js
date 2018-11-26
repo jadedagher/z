@@ -16,28 +16,28 @@ Template.home.onRendered(function () {
 });
 
 Template.home.onCreated(function bodyOnCreated() {
-  //set inerval to let meteor create user and check it 
-  setInterval(function(){ 
-    if(Meteor.user()===null){
-      FlowRouter.go('/');
-      location.reload();
-    }
-  }, 100);
+  // //set inerval to let meteor create user and check it
+  // setInterval(function(){ 
+  //   if(Meteor.user()===null){
+  //     FlowRouter.go('/');
+  //     location.reload();
+  //   }
+  // }, 100);
   
 });
 
 Template.home.helpers({
 
-  findfirstname(){
-    Meteor.call("getfirstname", Meteor.userId(), (error, response) => {
-      if (error) {
-        alert(error.reason);
-      } else {
-        Session.set('firstname', response);
-      }
-    });
-    return Session.get('firstname')
-  }
+  // findfirstname(){
+  //   Meteor.call("getfirstname", Meteor.userId(), (error, response) => {
+  //     if (error) {
+  //       alert(error.reason);
+  //     } else {
+  //       Session.set('firstname', response);
+  //     }
+  //   });
+  //   return Session.get('firstname')
+  // }
 });
 
 Template.home.events({
