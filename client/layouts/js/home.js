@@ -24,6 +24,7 @@ Template.home.onCreated(function bodyOnCreated() {
   //   }
   // }, 100);
   
+  
 });
 
 Template.home.helpers({
