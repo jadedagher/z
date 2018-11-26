@@ -6,6 +6,7 @@ import { Bids, Events } from '../../../api/collections.js';
 
 import '../html/home.html';
 import './eventlist.js';
+import './loader.html';
 
 // style
 Template.home.onRendered(function () {
