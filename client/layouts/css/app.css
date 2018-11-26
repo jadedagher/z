@@ -34,6 +34,25 @@ body {
   padding-right: 0px !important;
 }
 
+.loader {
+  -webkit-animation-name: spin;
+  -webkit-animation-duration: 400ms;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+  -moz-animation-name: spin;
+  -moz-animation-duration: 400ms;
+  -moz-animation-iteration-count: infinite;
+  -moz-animation-timing-function: linear;
+  -ms-animation-name: spin;
+  -ms-animation-duration: 400ms;
+  -ms-animation-iteration-count: infinite;
+  -ms-animation-timing-function: linear;
+  animation-name: spin;
+  animation-duration: 400ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
 .redirect_to_signin {
   color: #6C6CCA; 
   border-color: #6C6CCA; 
