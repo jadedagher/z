@@ -122,7 +122,7 @@ Meteor.methods({
       productPrice: Number
     });
     
-    if (data.eventName =="" || data.eventLocation =="" || data.eventDate == null || data.eventTime == null || data.productName == null || data.productPrice == null) {
+    if (data.eventName =="" || data.eventLocation =="" || data.eventDate == "" || data.eventTime == "" || data.productName == "" || data.productPrice == "") {
       throw new Meteor.Error("message-empty", "createevent something went wrong!");
     } else {
 
