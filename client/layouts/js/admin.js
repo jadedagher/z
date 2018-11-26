@@ -42,10 +42,11 @@ Template.admin.events({
 
       Meteor.call("startBid", $eventid.val(), function(err,res){
         if(err){
-          console.log('Error startbid: '+err);
+          alert(err.reason);
+        } else {
+          FlowRouter.go('bid', {id: $eventid.val()});
         }
       });
-    FlowRouter.go('bid', {id: $eventid.val()});
   },
 
   //refaire le dashboard
@@ -58,38 +59,57 @@ Template.admin.events({
 
       Meteor.call("resetBid", $eventid.val(), function(err,res){
         if(err){
-          console.log('Error resetbid: '+err);
+          alert(err.reason);
+        } else {
+          FlowRouter.go('bid', {id: $eventid.val()});
         }
       });
-      FlowRouter.go('bid', {id: $eventid.val()});
+    
   },
 
-  // 'submit .populatedb'(event, template){
-  //     event.preventDefault();
+  'submit .createevent'(event){
 
-  //     const $inputname = template.find('#itemname').value;
-  //     const $inputprice = parseInt(template.find('#itemprice').value);
-      
-  //     const data = {itemname: $inputname, itemprice: $inputprice};
+      event.preventDefault();
+      const $el = $(event.currentTarget);
 
-  //     Meteor.call("populateitemdb", data, function(err,res){
-  //       if(err){
-  //         console.log('Error populateitemdb: '+err);
-  //       }
-  //     });
-  //   FlowRouter.go('bid');
-  // },
+      const $eventName = $el.find('.event_name').val();
+      const $eventLocation = $el.find('.event_location').val();
+      const $eventDate = new Date($el.find('.event_date').val());
+      const $eventTime = $el.find('.event_time').val();
+      const $productName = $el.find('.product_name').val();
+      const $productPrice = parseInt($el.find('.product_initialprice').val());
 
-  // 'submit .test_populatedb'(event){
-  //     event.preventDefault();
+      const data = {eventName: $eventName, eventLocation: $eventLocation, eventDate: $eventDate, 
+                    eventTime: $eventTime, productName: $productName, productPrice: $productPrice};
+      // console.log(data);
+      Meteor.call("createevent", data, function(err,res){
+        if(err){
+          alert(err.reason);
+        } else {
+          alert("New event has been created and added to home")
+          FlowRouter.go('home');
+        }
+      });
+  }, 
 
-  //     Meteor.call("test_populateitemdb", function(err,res){
-  //       if(err){
-  //         console.log('Error test_populateitemdb: '+err);
-  //       }
-  //     });
-  //   FlowRouter.go('bid');
-  // }
+  'submit .deleteevent'(event){
+
+      event.preventDefault();
+      const $el = $(event.currentTarget);
+      const $eventid = $el.find('.eventidpannel_delete');
+
+      Meteor.call("deleteevent", $eventid.val(), function(err,res){
+        if(err){
+          alert(err.reason);
+        } else {
+          alert("Event has been removed from home")
+          FlowRouter.go('home');
+        }
+      });
+  },
+
+
+  
 });
 
 

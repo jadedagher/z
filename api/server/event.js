@@ -6,7 +6,8 @@ Meteor.publish("events", function() {
   fields: { 
   	product_ID: 1, 
     event_name: 1, 
-  	event_location: 1, 
+  	event_location: 1,
+    event_date: 1, 
   	event_time: 1,
   	product_name: 1,
   	product_initialPrice: 1,

@@ -15,29 +15,25 @@ Template.home.onCreated(function bodyOnCreated() {
 
 Template.eventlist.helpers({
 	formatDate(date){
-		return moment(date).format('MM-DD-YYYY HH:mm');
+		return moment(date).format('MM-DD-YYYY');
 	}
 });
 
 Template.home.helpers({
 	event_today_list(){
-
 		const start_day = moment().startOf('day')._d;
 		const end_day = moment().endOf('day')._d;
-
-		return Events.find({"event_time" : {"$gte": start_day, "$lte": end_day}});
+		return Events.find({"event_date" : {"$gte": start_day, "$lte": end_day}});
 	},
 
 	event_incoming_list(){
-		return Events.find({"event_time" : {"$gte": new Date()}});
+		return Events.find({"event_date" : {"$gte": new Date()}});
 	},
 
 	event_past_list(){
-
 		var today = new Date();
 		var yesterday = new Date(today.getTime() - (24*60*60*1000));
-
-		return Events.find({"event_time" : {"$lte": yesterday}});
+		return Events.find({"event_date" : {"$lte": yesterday}});
 	}
 
 });

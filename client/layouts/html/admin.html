@@ -17,18 +17,81 @@
           <h1 class="jumbotron-heading">Administrator side</h1>
           <p class="lead text-muted">This is only for admin!</p>
 
-          <br>
-            <p class="lead text-muted">Start bid, will launch the game</p>
+            
+            <div id="faq" role="tablist" aria-multiselectable="true">
+               <div class="panel panel-default">
+                  <div class="panel-heading" role="tab" id="questionOne">
+                     <h5 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#faq" href="#answerOne" aria-expanded="true" aria-controls="answerOne">
+                        Start Event / Reset Event
+                        </a>
+                     </h5>
+                  </div>
+                  <div id="answerOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="questionOne">
+                    <div class="panel-body center-block">
+                        <p class="lead text-muted">Start Event, will launch the game</p>
+                        <form class="startgame">        
+                            <input type="text" class="eventidpannel form-control" placeholder="event ID to trigger" required="" autofocus="">
+                            <br>
+                            <button class="btn-success timerstart button btn btn-lg btn-block" type="submit">Start Event</button>
+                        </form>
+                        <br>
+                        <p class="lead text-muted">Reset Event, will reset time & price to initial values</p>
+                        <form class="resetgame">        
+                            <input type="text" class="eventidpannel_reset form-control" placeholder="event ID to reset" required="" autofocus="">
+                            <br>
+                            <button class="btn-success reset_event button btn btn-lg btn-danger btn-block" type="submit">Reset Event</button>
+                        </form>
+                     </div>
+                  </div>
+               </div>
+               <div class="panel panel-default">
+                  <div class="panel-heading" role="tab" id="questionTwo">
+                     <h5 class="panel-title">
+                        <a class="collapsed" data-toggle="collapse" data-parent="#faq" href="#answerTwo" aria-expanded="true" aria-controls="answerTwo">
+                        Create Event
+                        </a>
+                     </h5>
+                  </div>
+                  <div id="answerTwo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="questionTwo">
+                     <div class="panel-body center-block">  
 
-            <form class="startgame">        
-                <input type="text" class="eventidpannel form-control" placeholder="event ID to trigger" required="" autofocus="">
-                <button class="btn-success timerstart button btn btn-lg btn-block" type="submit">Start bid</button>
-            </form>
-            <br>
-            <form class="resetgame">        
-                <input type="text" class="eventidpannel_reset form-control" placeholder="event ID to reset" required="" autofocus="">
-                <button class="btn-success reset_event button btn btn-lg btn-block" type="submit">Reset Event</button>
-            </form>
+                        <p class="lead text-muted">Create event will add a new event to event list</p>
+                        <form class="createevent">        
+                            <input type="text" class="event_name form-control" placeholder="Event name" required="" autofocus="">
+                            <input type="text" class="event_location form-control" placeholder="Event location" required="" autofocus="">
+                            <input type="date" class="event_date form-control" placeholder="Event Date" required="" autofocus="">
+                            <input type="time" class="event_time form-control" placeholder="Event Time" required="" autofocus="">
+                            <input type="text" class="product_name form-control" placeholder="Product name" required="" autofocus=""> 
+                            <input type="number" class="product_initialprice form-control" placeholder="Product Price" required="" autofocus="">
+                            <br>
+                            <button class="createevent button btn btn-lg btn-primary btn-block" type="submit">Create Event</button>
+                        </form>
+
+                     </div>
+                  </div>
+               </div>
+               <div class="panel panel-default">
+                  <div class="panel-heading" role="tab" id="questionThree">
+                     <h5 class="panel-title">
+                        <a class="collapsed" data-toggle="collapse" data-parent="#faq" href="#answerThree" aria-expanded="true" aria-controls="answerThree">
+                        Delete Event
+                        </a>
+                     </h5>
+                  </div>
+                  <div id="answerThree" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="questionThree">
+                     <div class="panel-body center-block">
+                        <p class="lead text-muted"><strong style="color: red">WARNING</strong><br>Delete event will remove the event wanted to event list</p>
+                        <form class="deleteevent">        
+                            <input type="text" class="eventidpannel_delete form-control" placeholder="event ID to delete" required="" autofocus="">
+                            <br>
+                            <button class="deleteevent button btn btn-lg btn-danger btn-block" type="submit">Delete Event</button>
+                        </form>
+
+                     </div>
+                  </div>
+               </div>
+            </div>
         </div>
     </section>
 </body>

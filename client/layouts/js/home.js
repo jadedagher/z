@@ -50,8 +50,7 @@ Template.home.events({
     	FlowRouter.go('soon');
   	},
 
-    'click .logout'(event){
-      event.preventDefault();
+    'click .logout'(){
       Meteor.logout();
       FlowRouter.go('/');
     },

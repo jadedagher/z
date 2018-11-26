@@ -58,23 +58,23 @@ Meteor.startup(() => {
     //     createdAt: new Date()
     // });
 
-    Events.insert({
-        product_ID: "ii",
-        event_name: "care",
-        event_location: "à paris",
-        event_time: "2018-11-25T09:00:00.00Z",
-        product_name: "laptop",
-        product_initialPrice: 1092,
-        winner_name: null,
-        winner_price: null,
-        bid_time: null,
-        bidstart: null,
-        launchedAt: null,
-        finishedAt: null,
-        bidAt: null,
-        buyAt: 1,
-        createdAt: new Date()
-    });
+    // Events.insert({
+    //     product_ID: "ii",
+    //     event_name: "care",
+    //     event_location: "à paris",
+    //     event_time: "2018-11-25T09:00:00.00Z",
+    //     product_name: "laptop",
+    //     product_initialPrice: 1092,
+    //     winner_name: null,
+    //     winner_price: null,
+    //     bid_time: null,
+    //     bidstart: null,
+    //     launchedAt: null,
+    //     finishedAt: null,
+    //     bidAt: null,
+    //     buyAt: 1,
+    //     createdAt: new Date()
+    // });
 
 });
 

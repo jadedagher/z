@@ -67,7 +67,7 @@ Meteor.methods({
 		});
     
     if (data.itemID =="" || data.eventID =="" || data.itemPrice == null) {
-      throw new Meteor.Error("message-empty", "something went wrong!");
+      throw new Meteor.Error("message-empty", "sendBid something went wrong!");
     } else {
 
       Bids.insert({
@@ -90,45 +90,73 @@ Meteor.methods({
 
   //admin function
   'startBid'(eventid){
+    
+    const eventid_exist = Events.find({_id: eventid}).count();
+
+    if (eventid_exist < 1 ) {
+      throw new Meteor.Error("WRONG", "EventID don't exist");
+    } else {
       const res = Events.update( eventid , { $set: { bidAt: Date.now(), buyAt: null }});
+    }
   },
 
   'resetBid'(eventid){
-    const res = Events.update( eventid , { $set: { bidAt: null, buyAt: 1 }});
+
+    const eventid_exist = Events.find({_id: eventid}).count();
+
+    if (eventid_exist < 1 ) {
+      throw new Meteor.Error("WRONG", "EventID don't exist");
+    } else {
+      const res = Events.update( eventid , { $set: { bidAt: null, buyAt: 1 }});
+    }
   },
 
-  //refaire le dashboard 
-  // 'test_populateitemdb'(){
-  //     Items.insert({
-  //       name: "Google Home MINI",
-  //       image: 1,
-  //       initialPrice: 45, 
-  //       bidAt: null,
-  //       buyAt: 1,
-  //       createdAt: new Date()
-  //     });
-  // },
+  'createevent'(data) {
 
-  // 'populateitemdb'(data){
+    check(data, {
+      eventName: String,
+      eventLocation: String, 
+      eventDate: Date,
+      eventTime: String,
+      productName: String,
+      productPrice: Number
+    });
+    
+    if (data.eventName =="" || data.eventLocation =="" || data.eventDate == null || data.eventTime == null || data.productName == null || data.productPrice == null) {
+      throw new Meteor.Error("message-empty", "createevent something went wrong!");
+    } else {
 
-  //   check(data, {
-  //     itemname: String,
-  //     itemprice: Number
-  //   });
+      Events.insert({
+        product_ID: null, 
+        event_name: data.eventName, 
+        event_location: data.eventLocation,
+        event_date: data.eventDate, 
+        event_time: data.eventTime,
+        product_name: data.productName,
+        product_initialPrice: data.productPrice,
+        winner_name: null, 
+        winner_price: null, 
+        bid_time: null, 
+        bidstart: null,
+        launchedAt: null, 
+        finishedAt: null,
+        createdAt: new Date(), 
+        bidAt: null, 
+        buyAt: 1
+      });
+    }
+  }, 
 
-  //   if (data.itemname =="" || data.itemprice == null) {
-  //     throw new Meteor.Error("message-empty", "fill the fields");
-  //   } else {
+  'deleteevent'(eventid){
 
-  //     Items.insert({
-  //       name: data.itemname,
-  //       image: 1,
-  //       initialPrice: data.itemprice, 
-  //       bidAt: null,
-  //       buyAt: 1,
-  //       createdAt: new Date()
-  //     });
-  //   }
-  // }
+    const eventid_exist = Events.find({_id: eventid}).count();
+
+    if (eventid_exist < 1 ) {
+      throw new Meteor.Error("WRONG", "EventID don't exist");
+    } else {
+      const res = Events.remove({_id: eventid});
+    }
+  }
+  
 });
 
