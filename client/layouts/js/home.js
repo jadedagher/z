@@ -28,16 +28,16 @@ Template.home.onCreated(function bodyOnCreated() {
 
 Template.home.helpers({
 
-  // findfirstname(){
-  //   Meteor.call("getfirstname", Meteor.userId(), (error, response) => {
-  //     if (error) {
-  //       alert(error.reason);
-  //     } else {
-  //       Session.set('firstname', response);
-  //     }
-  //   });
-  //   return Session.get('firstname')
-  // }
+  findfirstname(){
+    Meteor.call("getfirstname", Meteor.userId(), (error, response) => {
+      if (error) {
+        alert(error.reason);
+      } else {
+        Session.set('firstname', response);
+      }
+    });
+    return Session.get('firstname')
+  }
 });
 
 Template.home.events({
