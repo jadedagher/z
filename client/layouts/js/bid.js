@@ -23,7 +23,6 @@ Template.bid.onRendered(function () {
 Template.bid.onCreated(function bodyOnCreated() {
 
   if(Meteor.user()===null){
-    alert("Smart ass!!! You should sign in to see this babe!");
     FlowRouter.go('/');
     Template.bid.hide();
 

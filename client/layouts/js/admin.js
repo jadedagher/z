@@ -18,7 +18,6 @@ Template.admin.onCreated(function bodyOnCreated() {
 
   setInterval(function(){ 
     if(Meteor.user() === null || Meteor.user().emails[0].address != "jadedagheresme@gmail.com"){
-      alert("Smart ass!!! You should see this!");
       FlowRouter.go('/');
       location.reload();
     }

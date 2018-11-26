@@ -16,7 +16,6 @@ Template.leaderboard.onRendered(function () {
 Template.leaderboard.onCreated(function bodyOnCreated() {
 
   if(Meteor.user()===null){
-    alert("Smart ass!!! You should sign in to see this babe!");
     FlowRouter.go('/');
 
   }else{

@@ -17,7 +17,6 @@ Template.over.onRendered(function () {
 Template.over.onCreated(function bodyOnCreated() {
 
 	if(Meteor.user()===null){
-	    alert("Smart ass!!! You should sign in to see this babe!");
 	    FlowRouter.go('/');
 	    Template.over.hide();   
 	}
