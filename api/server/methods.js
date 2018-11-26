@@ -84,10 +84,6 @@ Meteor.methods({
     }
 	}, 
 
-  // 'getfirstname'(userId){
-  //   return Meteor.users.findOne({_id: userId}).firstname;
-  // },
-
   //admin function
   'startBid'(eventid){
     

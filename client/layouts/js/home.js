@@ -15,30 +15,10 @@ Template.home.onRendered(function () {
       .transition().duration(700).style("opacity", "1");
 });
 
-Template.home.onCreated(function bodyOnCreated() {
-  // //set inerval to let meteor create user and check it
-  // setInterval(function(){ 
-  //   if(Meteor.user()===null){
-  //     FlowRouter.go('/');
-  //     location.reload();
-  //   }
-  // }, 100);
-  
-  
+Template.home.onCreated(function bodyOnCreated() {  
 });
 
 Template.home.helpers({
-
-  // findfirstname(){
-  //   Meteor.call("getfirstname", Meteor.userId(), (error, response) => {
-  //     if (error) {
-  //       alert(error.reason);
-  //     } else {
-  //       Session.set('firstname', response);
-  //     }
-  //   });
-  //   return Session.get('firstname')
-  // }
 });
 
 Template.home.events({
