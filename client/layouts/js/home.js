@@ -4,9 +4,9 @@ import d3 from 'd3';
 
 import { Bids, Events } from '../../../api/collections.js';
 
-import '../html/home.html';
 import './eventlist.js';
-import './loader.html';
+import '../html/home.html';
+import '../html/loader.html';
 
 // style
 Template.home.onRendered(function () {
