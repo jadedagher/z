@@ -34,6 +34,18 @@ body {
   padding-right: 0px !important;
 }
 
+.redirect_to_signin {
+  color: #6C6CCA; 
+  border-color: #6C6CCA; 
+  background-color: white
+}
+
+.redirect_to_login {
+  color: #6C6CCA; 
+  border-color: #6C6CCA; 
+  background-color: white
+}
+
 /* selections made by the user dragging along text */
 
 ::selection {

@@ -20,7 +20,14 @@ Template.eventlist.helpers({
 });
 
 Template.home.helpers({
+	formatDate(date){
+		return moment(date).format('MM-DD-YYYY');
+	}
+});
+
+Template.home.helpers({
 	event_today_list(){
+
 		const start_day = moment().startOf('day')._d;
 		const end_day = moment().endOf('day')._d;
 		return Events.find({"event_date" : {"$gte": start_day, "$lte": end_day}});
