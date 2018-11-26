@@ -1,6 +1,63 @@
 <template name="eventlist">
 
-	<form class="eventselection">
+	<div class="well" style="margin-bottom: 0px !important; padding: 0px !important; border: 1px solid #EAE7EC; border-radius: 10px 10px 0px 0px;">
+	    <img class="img-responsive" src="v.png" alt="Chania" width="2000px" height="2000px">	    
+    </div>
+
+    <div class="infoproduct">
+	    <div>
+	    	<h5 style="margin-top: 15px !important; margin-left: 20px !important">{{ product_name }}</h5>
+	    </div>
+    </div>
+
+    <div class="infoproduct">
+	    <div>
+	    	<h5 style="margin-top: 15px !important; margin-left: 20px !important">Starting Price: {{ product_initialPrice }}€ </h5>
+	    </div>
+    </div>
+
+    <div class="btn-pref btn-group btn-group-justified btn-group-lg" role="group">
+
+        <div class="btn-group" role="group">
+            <button style="border: 1px solid #EAE7EC; border-radius: 0px;" type="button" id="stars" class="dropdown btn btn-default" data-target="#tab1" data-toggle="collapse"><span class="glyphicon glyphicon-euro" aria-hidden="true"></span>
+                <div>Product</div>
+            </button>
+        </div>
+        <div class="btn-group" role="group">
+            <button style="border: 1px solid #EAE7EC; border-radius: 0px;" type="button" id="favorites" class="dropdown btn btn-default" data-target="#tab2" data-toggle="collapse"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+                <div>Event</div>
+            </button>
+        </div>
+        <div class="btn-group" role="group">
+        	<form class="eventselection">
+	            <button type="submit" style="border: 1px solid #6C6CCA; border-radius: 0px; background-color: #6C6CCA;" id="following" class="btn btn-success" data-target="#tab3" data-toggle="collapse"><span class="glyphicon glyphicon-play" aria-hidden="true"></span>
+	            <div class="">Let's Bid</div>
+	            <input type="hidden" class="eventID" value="{{_id}}">
+				<input type="hidden" class="eventtime" value="{{event_date}}">
+	            </button>
+        	</form>
+        </div>
+    </div>
+
+    <div class="bridge collapse indent" id="tab1" style="border: 1px solid #EAE7EC; border-radius: 0px 0px 10px 10px;">
+    	<div>
+    		<br>
+          	<h5>Data1</h5>
+          </div>
+    </div>
+
+     <div class="bridge collapse indent " id="tab2" style="border: 1px solid #EAE7EC; border-radius: 0px 0px 10px 10px;">
+     	<div>
+          	<br>
+          	<h5>Data2</h5>
+          </div>
+    </div>
+
+    <br>
+    
+   
+
+	<!-- <form class="eventselection">
 		<button type="submit" class="events list-group-item list-group-item-action flex-column align-items-start">
 			<div class="d-flex w-100 justify-content-between">
 				<h5 class="mb-1">{{event_name}}</h5>
@@ -12,5 +69,5 @@
 			<input type="hidden" class="eventtime" value="{{event_date}}">
 	     </button>
      </form>
-     <br>
+     <br> -->
 </template>

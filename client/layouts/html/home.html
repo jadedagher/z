@@ -27,9 +27,9 @@
             <h4 class="text-muted" style="text-align: left;">Today challenge <img src="/tada.png" class="emoji" alt="tada"></h4>
           {{#if Template.subscriptionsReady}}
             {{#each event_today_list}}
-
+                {{> eventlist}}
                 <!-- with aktive and rainbow -->
-                <form class="eventselection">
+                <!-- <form class="eventselection">
                   <button type="submit" class="aktive rainbow events list-group-item list-group-item-action flex-column align-items-start">
                     <div class="d-flex w-100 justify-content-between">
                       <h5 class="mb-1">{{event_name}}</h5>
@@ -40,7 +40,7 @@
                     <input type="hidden" class="eventID" value="{{_id}}">
                     <input type="hidden" class="eventtime" value="{{event_date}}">
                      </button>
-                  </form>
+                  </form> -->
 
             {{/each}}
             {{else}}
