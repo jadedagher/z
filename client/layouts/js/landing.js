@@ -41,7 +41,7 @@ Template.landing.events({
             requestPermissions: ['email', 'profile'],
         }, (error) => {
             if (error) {
-                alert(error);
+                console.log('Handle errors here: ', err);
             }else{
                 FlowRouter.go('home')
             }
