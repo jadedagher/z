@@ -37,7 +37,7 @@ Template.signin.events({
                     alert(error.reason);
                 } else {
                     Meteor.loginWithPassword($inputEmail, $inputPassword);
-                    FlowRouter.go('home');
+                      setInterval(function(){FlowRouter.go('home')}, 1000);
                 }
             });
 
