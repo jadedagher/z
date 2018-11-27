@@ -54,7 +54,7 @@ Template.bid.helpers({
     } 
 
     // else if (bidAt && buyAt) {
-    //   //elapstedTime = (buyAt - bidAt) / 1000
+    //   return elapstedTime = (buyAt - bidAt) / 1000
     // } 
 
     else {
@@ -120,9 +120,14 @@ Template.bid.events({
 
         const $itemid = $el.find('.itemid');
         const $eventid = $el.find('.eventid');
-
         const $itemprice = parseInt($el.find('.itemprice').val()); //converting itemprice in number
         
+
+        console.log("itemid "+$itemid.val()); 
+        console.log("eventid "+$eventid.val()); 
+        console.log("itemprice "+$itemprice); 
+
+
         const data = {itemID: $itemid.val(), eventID: $eventid.val(), itemPrice: $itemprice};
 
         alert("You just bid at " +$itemprice+ "€ Thank you!!!");

@@ -66,7 +66,7 @@ Meteor.methods({
       itemPrice: Number
 		});
     
-    if (data.itemID =="" || data.eventID =="" || data.itemPrice == null) {
+    if (data.itemID =="" || data.eventID =="" || data.itemPrice == "") {
       throw new Meteor.Error("message-empty", "sendBid something went wrong!");
     } else {
 
