@@ -123,7 +123,7 @@ Meteor.methods({
     } else {
 
       Events.insert({
-        product_ID: null, 
+        product_ID: "cc", 
         event_name: data.eventName, 
         event_location: data.eventLocation,
         event_date: data.eventDate, 
