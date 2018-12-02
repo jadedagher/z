@@ -107,6 +107,15 @@ body {
   cursor: pointer;
 }
 
+.trophy{
+  position:absolute;
+  top: 20px;
+  right: 20px;
+  height: 40px;
+  width: 40px;
+  cursor: pointer;
+}
+
 .emoji{
   height: 25px;
 }

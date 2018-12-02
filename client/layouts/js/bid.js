@@ -66,12 +66,15 @@ Template.bid.helpers({
     let price = product_initialPrice - (elapstedTime * product_initialPrice) / timeToZero;
     price = price >= 0 ? Math.round(price) : 0;
 
-    // if(price === 0){
-    //   setInterval(function(){ 
-    //     FlowRouter.go('leaderboard');
-    //     location.reload();
-    //   }, 3000);
-    // }
+    if(price === 0){
+      setInterval(function(){ 
+        document.getElementById("finished").style.display = "block";
+        document.getElementById("rules").style.display = "none";
+        document.getElementById("surebid_text").style.display = "none";
+        document.getElementById("surebid").style.display = "none";
+        document.getElementById("bidbtn").style.display = "none";
+      }, 2000);
+    }
 
     return price ;
   },
@@ -148,8 +151,11 @@ Template.bid.events({
 
   'click .cancelbtnbid'(){
     FlowRouter.go('home');
+  },
+
+  'click .trophybtnbid'(){
+    FlowRouter.go('leaderboard', {id: FlowRouter.getParam("id")});
   }
-  
   
 });
   

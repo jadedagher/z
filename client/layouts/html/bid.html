@@ -13,7 +13,7 @@
 
   <body class="text-center">
 
-    <img class="cancelbtnbid cancel" id="oo" src="/cancel.png">
+    <img class="cancelbtnbid cancel" src="/cancel.png">
 
     <div class="up jumbotron">
         <h3>Remaining Time:</h3>
@@ -29,7 +29,9 @@
       <br>
       <br>
 
-      <p class="h5 font-weight-normal">RULES: the first one to Bid win the Prize</p>
+      <p class="h5 font-weight-normal" id="rules" style="display: block;">RULES: the first one to Bid win the Prize</p>
+      <p class="h3 font-weight-normal" id="finished" style="display: none; color: red;">Finished! click on <br><a class="trophybtnbid rainbowwithhover">Winnerboard</a></p>
+
       <input type="hidden" class="itemid" value="{{events.product_ID}}">
       <input type="hidden" class="eventid" value="{{events._id}}">
       <input type="hidden" class="itemprice" value="{{price events.product_initialPrice events.bidAt events.buyAt}}">
@@ -38,13 +40,13 @@
 
       <div class="checkbox mb-3">
         <label class="customcheck">
-          <input type="checkbox" id="surebid"><span style="color:red">I'm sure, I want to bid</span>
+          <input type="checkbox" id="surebid" style=""><span id="surebid_text" style="color:red">I'm sure, I want to bid</span>
       </label>
       </div>
 
       <br>
       
-      <button class="button rainbow btn btn-lg btn-block" type="submit">Pay now!</button>
+      <button id="bidbtn" class="button rainbow btn btn-lg btn-block" type="submit">Pay now!</button>
       
       <br>
       
