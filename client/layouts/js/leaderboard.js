@@ -11,6 +11,14 @@ Template.leaderboard.onRendered(function () {
   var body = d3.select('body')
       .style("opacity", "0")
       .transition().duration(700).style("opacity", "1");
+
+  var winnername = d3.select('.winnername')
+      .style("opacity", "0")
+      .transition().duration(20000).style("opacity", "1");
+
+  var winnerprice = d3.select('.winnerprice')
+      .style("opacity", "0")
+      .transition().duration(20000).style("opacity", "1");
 });
 
 Template.leaderboard.onCreated(function bodyOnCreated() {
@@ -26,9 +34,22 @@ Template.leaderboard.onCreated(function bodyOnCreated() {
 
 Template.leaderboard.helpers({
   
-  bidslist(){
-    return Bids.find({event_ID: FlowRouter.getParam("id")}, { sort: { itemPrice: -1 } });
+  firstnameWinner(){
+    const firstname = Bids.findOne({event_ID: FlowRouter.getParam("id")}, {sort: {itemPrice: -1, limit: 1}}).firstname;
+    const f = firstname.toUpperCase();
+    return f;
   }, 
+
+  lastnameWinner(){
+    const lastname = Bids.findOne({event_ID: FlowRouter.getParam("id")}, {sort: {itemPrice: -1, limit: 1}}).lastname;
+    const l = lastname.toUpperCase();
+    return l;
+  },
+
+  priceWinner(){
+    const itemPrice = Bids.findOne({event_ID: FlowRouter.getParam("id")}, {sort: {itemPrice: -1, limit: 1}}).itemPrice;
+    return itemPrice;
+  },
 
   formatDate(date){
     return moment(date).format('HH:mm:ss');
