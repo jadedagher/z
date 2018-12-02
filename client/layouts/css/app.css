@@ -27,30 +27,6 @@ body {
   background-attachment: fixed;
 }
 
-.imgcontainer{
-
-  position: relative;
-  margin-bottom: 0px;
-  padding: 0px;
-  border: 1px solid #EAE7EC;
-  border-radius: 10px 10px 0px 0px;
-  height: 200px;
-  background-color: white;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.imgdiv{
-  margin: 0;
-  max-width: 50%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-right: -50%;
-  transform: translate(-50%, -50%);
-  border-radius: 10px 10px 0px 0px;
-}
-
 .container{
   margin-right: auto;
   margin-left: auto;
@@ -99,8 +75,27 @@ body {
   background: white; /* Gecko Browsers */
 }
 
-.underlineprice{
-  text-decoration: underline;
+.productname{
+  margin-bottom: 0px; 
+  height: 25px; 
+  margin-top: -6px; 
+  margin-left: 20px;
+}
+
+.productname_style{
+  background-color: #6C6CCA; 
+  color: white;
+}
+
+.productprice{
+  height: 22px; 
+  margin-top: -5px; 
+  margin-left: 20px;
+}
+
+.productprice_style{
+  background-color: #B5B3B6; 
+  color: white;
 }
 
 .cancel{

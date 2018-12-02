@@ -77,9 +77,10 @@ Template.admin.events({
       const $eventTime = $el.find('.event_time').val();
       const $productName = $el.find('.product_name').val();
       const $productPrice = parseInt($el.find('.product_initialprice').val());
+      const $productImg = $el.find('.product_img').val();
 
       const data = {eventName: $eventName, eventLocation: $eventLocation, eventDate: $eventDate, 
-                    eventTime: $eventTime, productName: $productName, productPrice: $productPrice};
+                    eventTime: $eventTime, productName: $productName, productPrice: $productPrice, productImg: $productImg};
       // console.log(data);
       Meteor.call("createevent", data, function(err,res){
         if(err){

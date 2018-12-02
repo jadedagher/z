@@ -115,21 +115,23 @@ Meteor.methods({
       eventDate: Date,
       eventTime: String,
       productName: String,
-      productPrice: Number
+      productPrice: Number,
+      productImg: String,
     });
     
-    if (data.eventName =="" || data.eventLocation =="" || data.eventDate == "" || data.eventTime == "" || data.productName == "" || data.productPrice == "") {
+    if (data.eventName =="" || data.eventLocation =="" || data.eventDate == "" || data.eventTime == "" || data.productName == "" || data.productPrice == "" || data.productImg == "") {
       throw new Meteor.Error("message-empty", "createevent something went wrong!");
     } else {
 
       Events.insert({
-        product_ID: "cc", 
+        product_ID: Math.random().toString(10).substring(7), 
         event_name: data.eventName, 
         event_location: data.eventLocation,
         event_date: data.eventDate, 
         event_time: data.eventTime,
         product_name: data.productName,
         product_initialPrice: data.productPrice,
+        product_img: data.productImg,
         winner_name: null, 
         winner_price: null, 
         bid_time: null, 

@@ -10,7 +10,6 @@ import '../html/eventlist.html';
 Template.home.onCreated(function bodyOnCreated() {
 	
 	this.eventSub = this.subscribe("events"); //get events
-
 });
 
 Template.eventlist.helpers({

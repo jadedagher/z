@@ -1,20 +1,20 @@
 <template name="eventlist">
 
 	<div class="imgcontainer">
-	    <img class="imgdiv" src="v.png">	    
+	    <img class="imgdiv" src="{{product_img}}">	    
     </div>
 
     <div class="infoproduct">
 	    <div>
 	    	<br>
-	    	<h4 style="margin-bottom: 0px; height: 25px; margin-top: -6px !important; margin-left: 20px !important"><span style="background-color: #6C6CCA; color: white;">&nbsp;&nbsp;{{ product_name }}&nbsp;&nbsp;</span></h4>
-	    	<h5 style="height: 22px; margin-top: -5px !important; margin-left: 20px !important"><span style="background-color: #B5B3B6; color: white;">&nbsp;&nbsp;Starting Price: {{ product_initialPrice }}€&nbsp;&nbsp;</span></h5>
+	    	<h4 class="productname"><span class="productname_style">&nbsp;&nbsp;{{ product_name }}&nbsp;&nbsp;</span></h4>
+	    	<h5 class="productprice"><span class="productprice_style">&nbsp;&nbsp;Starting Price: {{ product_initialPrice }}€&nbsp;&nbsp;</span></h5>
 	    </div>
     </div>
 
     <div class="btn-pref btn-group btn-group-justified btn-group-lg" role="group">
         <div class="btn-group" role="group">
-            <button style="border-radius: 0px 0px 0px 10px; border: 1px solid #EAE7EC;" type="button" id="stars" class="dropdown btn btn-default" data-target="#tab1" data-toggle="collapse"><span class="glyphicon glyphicon-euro" aria-hidden="true"></span>
+            <button style="border-radius: 0px 0px 0px 10px; border: 1px solid #EAE7EC;" type="button" id="stars" class="dropdown btn btn-default" data-target="#tab1" data-toggle="collapse"><span class="glyphicon glyphicon-sunglasses" aria-hidden="true"></span>
                 <div>Product</div>
             </button>
         </div>

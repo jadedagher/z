@@ -11,6 +11,7 @@ Meteor.publish("events", function() {
   	event_time: 1,
   	product_name: 1,
   	product_initialPrice: 1,
+    product_img: 1,
     winner_name: 1, 
     winner_price: 1, 
     bid_time: 1, 

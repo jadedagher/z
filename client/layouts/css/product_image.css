@@ -1,0 +1,113 @@
+.imgcontainer{
+
+  position: relative;
+  margin-bottom: 0px;
+  padding: 0px;
+  border: 1px solid #EAE7EC;
+  border-radius: 10px 10px 0px 0px;
+  height: 200px;
+  background-color: white;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.imgdiv{
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px 10px 0px 0px;
+  width: 100%;
+  height: auto;
+  max-width: 50vw;
+}
+
+@media only screen and (min-width: 400px) {
+    .imgdiv{
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 10px 10px 0px 0px;
+        width: 100%;
+        height: auto;
+        max-width: 50vw;
+    }
+}
+
+@media only screen and (min-width: 500px) {
+    .imgdiv{
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 10px 10px 0px 0px;
+        width: 100%;
+        height: auto;
+        max-width: 40vw;
+    }
+
+}
+
+
+@media only screen and (min-width: 600px) {
+    .imgdiv{
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 10px 10px 0px 0px;
+        width: 100%;
+        height: auto;
+        max-width: 30vw;
+    }
+
+}
+
+@media only screen and (min-width: 700px) {
+    .imgdiv{
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 10px 10px 0px 0px;
+        width: 100%;
+        height: auto;
+        max-width: 30vw;
+    }
+
+}
+
+@media only screen and (min-width: 800px) {
+    .imgdiv{
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 10px 10px 0px 0px;
+        width: 100%;
+        height: auto;
+        max-width: 25vw;
+    }
+
+}
+
+@media only screen and (min-width: 900px) {
+    .imgdiv{
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 10px 10px 0px 0px;
+        width: 100%;
+        height: auto;
+        max-width: 12vw;
+    }
+
+}
+
+@media only screen and (min-width: 1000px) {
+    .imgdiv{
+        position: absolute;
+        top: 50%;        
+        transform: translate(-50%, -50%);
+        border-radius: 10px 10px 0px 0px;
+        width: 100%;
+        height: auto;
+        max-width: 12vw;
+    }
+
+}
