@@ -1,6 +1,8 @@
 <template name="eventlist">
 
 	<div class="imgcontainer">
+      <span class="coutdown">&nbsp;&nbsp;{{ formatDate event_date }} at {{ event_time }}&nbsp;&nbsp;</span>
+      <!-- <span class="coutdown">{{> countdown}}</span> -->
 	    <img class="imgdiv" src="{{product_img}}">	    
     </div>
 
@@ -8,61 +10,37 @@
 	    <div>
 	    	<br>
 	    	<h4 class="productname"><span class="productname_style">&nbsp;&nbsp;{{ product_name }}&nbsp;&nbsp;</span></h4>
-	    	<h5 class="productprice"><span class="productprice_style">&nbsp;&nbsp;Starting Price: {{ product_initialPrice }}€&nbsp;&nbsp;</span></h5>
+	    	<h5 class="productprice"><span class="productprice_style">&nbsp;&nbsp;Start Price: {{ product_initialPrice }}€&nbsp;&nbsp;</span></h5>
 	    </div>
     </div>
 
     <div class="btn-pref btn-group btn-group-justified btn-group-lg" role="group">
-        <div class="btn-group" role="group">
+        <!-- <div class="btn-group" role="group">
             <button style="border-radius: 0px 0px 0px 10px; border: 1px solid #EAE7EC;" type="button" id="stars" class="dropdown btn btn-default" data-target="#tab1" data-toggle="collapse"><span class="glyphicon glyphicon-sunglasses" aria-hidden="true"></span>
                 <div>Product</div>
             </button>
         </div>
         <div class="btn-group" role="group">
-            <button style="border: 1px solid #EAE7EC; border-radius: 0px;" type="button" id="favorites" class="dropdown btn btn-default" data-target="#tab2" data-toggle="collapse"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
-                <div>Event</div>
+          <form class="eventinfoselection">
+            <button type="submit" style="border: 1px solid #EAE7EC; border-radius: 0px;" id="favorites" class="dropdown btn btn-default" data-target="#tab2" data-toggle="collapse"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+              <div>Event</div>
+              <input type="hidden" class="eventID" value="{{_id}}">
+              <input type="hidden" class="eventtime" value="{{event_date}}">
             </button>
-        </div>
+          </form>
+
+        </div> -->
         <div class="btn-group" role="group">
         	<form class="eventselection">
-	            <button type="submit" style="border-radius: 0px 0px 10px 0px; border: 0px solid #EAE7EC;background-color: #6C6CCA;" id="following" class="btn btn-success" data-target="#tab3" data-toggle="collapse"><span class="rainbow glyphicon glyphicon-play" aria-hidden="true"></span>
-	            <div class="">Let's Bid</div>
-	            <input type="hidden" class="eventID" value="{{_id}}">
-				<input type="hidden" class="eventtime" value="{{event_date}}">
-	            </button>
+            <button type="submit" style="border-radius: 0px 0px 10px 10px; border: 0px solid #EAE7EC;background-color: #6C6CCA;" id="following" class="btn btn-success" data-target="#tab3" data-toggle="collapse"><span class="rainbow glyphicon glyphicon-play" aria-hidden="true"></span>
+              <div class="">Let's Bid</div>
+              <input type="hidden" class="eventID" value="{{_id}}">
+              <input type="hidden" class="eventtime" value="{{event_date}}">
+            </button>
         	</form>
         </div>
     </div>
 
-    <!-- <div class="bridge collapse indent" id="tab1" style="border: 1px solid #EAE7EC; border-radius: 0px 0px 10px 10px;">
-    	<div>
-    		<br>
-          	<h5>Data1</h5>
-          </div>
-    </div>
-
-     <div class="bridge collapse indent " id="tab2" style="border: 1px solid #EAE7EC; border-radius: 0px 0px 10px 10px;">
-     	<div>
-          	<br>
-          	<h5>Data2</h5>
-          </div>
-    </div> -->
-
     <br>
     
-   
-
-	<!-- <form class="eventselection">
-		<button type="submit" class="events list-group-item list-group-item-action flex-column align-items-start">
-			<div class="d-flex w-100 justify-content-between">
-				<h5 class="mb-1">{{event_name}}</h5>
-				<small>{{event_location}}</small>
-			</div>
-			<p class="mb-1">Prize: {{ product_name }}<br> Beginning Price: <span class="underlineprice">{{ product_initialPrice }}€</span></p>
-			<small>{{formatDate event_date}} - {{event_time}}</small>
-			<input type="hidden" class="eventID" value="{{_id}}">
-			<input type="hidden" class="eventtime" value="{{event_date}}">
-	     </button>
-     </form>
-     <br> -->
 </template>

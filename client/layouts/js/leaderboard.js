@@ -33,6 +33,10 @@ Template.leaderboard.onCreated(function bodyOnCreated() {
 });
 
 Template.leaderboard.helpers({
+
+  events(){
+    return Events.findOne({_id: FlowRouter.getParam("id")})
+  },
   
   firstnameWinner(){
     const firstname = Bids.findOne({event_ID: FlowRouter.getParam("id")}, {sort: {itemPrice: -1, limit: 1}}).firstname;

@@ -12,21 +12,15 @@ Template.home.onCreated(function bodyOnCreated() {
 	this.eventSub = this.subscribe("events"); //get events
 });
 
+
 Template.eventlist.helpers({
 	formatDate(date){
-		return moment(date).format('MM-DD-YYYY');
-	}
-});
-
-Template.home.helpers({
-	formatDate(date){
-		return moment(date).format('MM-DD-YYYY');
+		return moment(date).format('DD-MM-YYYY');
 	}
 });
 
 Template.home.helpers({
 	event_today_list(){
-
 		const start_day = moment().startOf('day')._d;
 		const end_day = moment().endOf('day')._d;
 		return Events.find({"event_date" : {"$gte": start_day, "$lte": end_day}});
@@ -68,6 +62,34 @@ Template.home.events({
 		 	} else {
 		 		FlowRouter.go('soon', {id: eventID});
 		 	}
+		}
+  	}, 
+
+  	'submit .eventinfoselection'(event){
+		event.preventDefault();
+
+		if(Meteor.user()===null){
+			alert("You should sign-in or log-in before see this!")
+			FlowRouter.go('/');
+			location.reload();
+	    } else {
+	    	const $el = $(event.currentTarget);
+		 	const eventID = $el.find('.eventID').val();
+		 	const eventtime = Date.parse($el.find('.eventtime').val());
+
+		 	// const start_day = Date.parse(moment().startOf('day')._d);
+			// const end_day = Date.parse(moment().endOf('day')._d);
+
+			FlowRouter.go('eventinfo', {id: eventID});
+
+			//condition for over or soon page
+		 	// if(eventtime > start_day && eventtime < end_day){
+		 	// 	FlowRouter.go('event', {id: eventID});
+		 	// } else if (eventtime < new Date()){
+		 	// 	FlowRouter.go('over', {id: eventID});
+		 	// } else {
+		 	// 	FlowRouter.go('soon', {id: eventID});
+		 	// }
 		}
   	}
  

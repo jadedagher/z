@@ -1,0 +1,23 @@
+<template name="eventinfo">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Pulse - Let's Start Bidding!</title>
+
+    {{ > bootstraplinks}}
+
+  </head>
+
+<body class="text-center">
+
+	<img class="cancelbtnevent cancel" src="/cancel.png">
+
+  	<h1>{{events.event_name}}</h1>	
+  	<h1>{{events.event_location}}</h1>
+    <h1>{{formatDate events.event_date}}</h1>
+
+</body>
+</template>

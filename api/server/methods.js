@@ -154,6 +154,10 @@ Meteor.methods({
     } else {
       const res = Events.remove({_id: eventid});
     }
+  },
+
+  'getCurrentTime': function (){
+    return Date.parse(new Date());
   }
   
 });

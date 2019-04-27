@@ -1,0 +1,20 @@
+<template name="countdown">
+    <div id="clockdiv">
+        <div>
+            <span class="days">{{t.days}}</span>
+            <div class="smalltext">Days</div>
+        </div>
+        <div>
+            <span class="hours">{{t.hours}}</span>
+            <div class="smalltext">Hours</div>
+        </div>
+        <div>
+            <span class="minutes" {{attributes}}>{{t.minutes}}</span>
+            <div class="smalltext">Minutes</div>
+        </div>
+        <div>
+            <span class="seconds">{{t.seconds}}</span>
+            <div class="smalltext">Seconds</div>
+        </div>
+    </div>
+</template>

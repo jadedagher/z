@@ -1,12 +1,11 @@
 .imgcontainer{
-
   position: relative;
   margin-bottom: 0px;
   padding: 0px;
   border: 1px solid #EAE7EC;
   border-radius: 10px 10px 0px 0px;
   height: 200px;
-  background-color: white;
+  background-color: #F5F5F5;
   margin-left: auto;
   margin-right: auto;
 }
@@ -19,6 +18,18 @@
   width: 100%;
   height: auto;
   max-width: 50vw;
+  z-index: 1;
+}
+
+.coutdown {
+  position: absolute;
+  background-color: #6C6CCA; 
+  color: white;
+  top: 0px;
+  left: 0px;
+  margin-left: 20px;
+  margin-top: 10px;
+  z-index: 100;
 }
 
 @media only screen and (min-width: 400px) {
