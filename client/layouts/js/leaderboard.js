@@ -40,7 +40,7 @@ Template.leaderboard.helpers({
   
   firstnameWinner(){
     const firstname = Bids.findOne({event_ID: FlowRouter.getParam("id")}, {sort: {itemPrice: -1, limit: 1}}).firstname;
-    const f = firstname.toUpperCase();
+    const f = firstname.toUpperCase(); 
     return f;
   }, 
 

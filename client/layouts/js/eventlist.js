@@ -45,8 +45,7 @@ Template.home.events({
 
 		if(Meteor.user()===null){
 			alert("You should sign-in or log-in before see this!")
-			FlowRouter.go('/');
-			location.reload();
+			FlowRouter.go('landing');
 	    } else {
 	    	const $el = $(event.currentTarget);
 		 	const eventID = $el.find('.eventID').val();
@@ -63,34 +62,26 @@ Template.home.events({
 		 		FlowRouter.go('soon', {id: eventID});
 		 	}
 		}
-  	}, 
-
-  	'submit .eventinfoselection'(event){
+  	},
+  	'submit .subscription'(event){
 		event.preventDefault();
 
 		if(Meteor.user()===null){
 			alert("You should sign-in or log-in before see this!")
-			FlowRouter.go('/');
-			location.reload();
+			FlowRouter.go('landing');
 	    } else {
 	    	const $el = $(event.currentTarget);
 		 	const eventID = $el.find('.eventID').val();
-		 	const eventtime = Date.parse($el.find('.eventtime').val());
 
-		 	// const start_day = Date.parse(moment().startOf('day')._d);
-			// const end_day = Date.parse(moment().endOf('day')._d);
+		 	const data = {eventID: eventID};
 
-			FlowRouter.go('eventinfo', {id: eventID});
-
-			//condition for over or soon page
-		 	// if(eventtime > start_day && eventtime < end_day){
-		 	// 	FlowRouter.go('event', {id: eventID});
-		 	// } else if (eventtime < new Date()){
-		 	// 	FlowRouter.go('over', {id: eventID});
-		 	// } else {
-		 	// 	FlowRouter.go('soon', {id: eventID});
-		 	// }
+		 	Meteor.call("subscribe", data, (error, response) => {
+	          if (error) {
+	            alert(error.reason);
+	          } else {
+	            alert("Subscription successful, you will receive an email 1hour before this reverse auction start");
+	          }
+	        });
 		}
   	}
- 
 });

@@ -3,7 +3,7 @@ import { check, Match } from 'meteor/check';
 import {Accounts} from 'meteor/accounts-base';
 import  {ServiceConfiguration} from 'meteor/service-configuration';
 
-import { Bids, Products, Events, Brands } from '../collections.js';
+import { Bids, Products, Events, Brands, Subscription} from '../collections.js';
 
 
 Accounts.onCreateUser(function (options, user) {
@@ -71,6 +71,7 @@ Meteor.methods({
     } else {
 
       Bids.insert({
+        user_ID: Meteor.user()._id,
         event_ID: data.eventID,
         firstname: Meteor.user().firstname,
         lastname: Meteor.user().lastname,
@@ -158,7 +159,29 @@ Meteor.methods({
 
   'getCurrentTime': function (){
     return Date.parse(new Date());
-  }
+  },
+
+  'subscribe'(data) {
+
+    check(data, {
+      eventID: String
+    });
+    
+    if (data.eventID =="") {
+      throw new Meteor.Error("message-empty", "sendBid something went wrong!");
+    } else {
+      Subscription.insert({
+        user_ID: Meteor.user()._id,
+        event_ID: data.eventID,
+        firstname: Meteor.user().firstname,
+        lastname: Meteor.user().lastname,
+        email: Meteor.user().email,
+        createdAt: new Date()
+      });
+    }
+  }, 
+
+
   
 });
 

@@ -14,6 +14,15 @@ Template.home.onRendered(function () {
   var body = d3.select('body')
       .style("opacity", "0")
       .transition().duration(700).style("opacity", "1");
+
+  if(Meteor.user()===null){
+    document.getElementById("logout").style.display = "none";
+    document.getElementById("signinLogin").style.display = "block";
+  } else {
+    document.getElementById("logout").style.display = "block";
+    document.getElementById("signinLogin").style.display = "none";
+  };
+
 });
 
 Template.home.onCreated(function bodyOnCreated() {  
@@ -31,10 +40,14 @@ Template.home.events({
   	'click .soon_event'(){
     	FlowRouter.go('soon');
   	},
-
+    'click .signin'(){
+      Meteor.logout();
+      FlowRouter.go('landing');
+    },
     'click .logout'(){
       Meteor.logout();
       FlowRouter.go('/');
+      location.reload();
     },
   	// filters
   	'click .todayfilter'(){

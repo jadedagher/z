@@ -126,9 +126,9 @@ Template.bid.events({
         const $itemprice = parseInt($el.find('.itemprice').val()); //converting itemprice in number
         
 
-        console.log("itemid "+$itemid.val()); 
-        console.log("eventid "+$eventid.val()); 
-        console.log("itemprice "+$itemprice); 
+        // console.log("itemid "+$itemid.val()); 
+        // console.log("eventid "+$eventid.val()); 
+        // console.log("itemprice "+$itemprice); 
 
 
         const data = {itemID: $itemid.val(), eventID: $eventid.val(), itemPrice: $itemprice};

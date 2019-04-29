@@ -3,7 +3,8 @@ import { Bids } from '../collections.js';
 
 Meteor.publish("bids", function() {
   return Bids.find({}, { 
-  fields: { 
+  fields: {
+    user_ID: 1, 
     event_ID: 1,
   	firstname: 1, 
     lastname: 1, 

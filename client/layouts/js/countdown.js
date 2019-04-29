@@ -13,20 +13,12 @@ Template.countdown.onCreated(function bodyOnCreated() {
 
 
 Template.countdown.helpers({
-	events(){
-    	return Events.findOne({_id: FlowRouter.getParam("id")})
-  	}
-});
-
-Template.countdown.events({
 });
 
 
   var timeinterval;
  
   Meteor.startup(function time() {
-  	var gettime = "j"
-  	console.log(gettime);
     var endtime = 'April 30 2019 05:47:30 UTC-0400';
     timeinterval = setInterval(function () {
       Meteor.call("getCurrentTime", function (error, result) {
